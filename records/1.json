@@ -1,0 +1,40 @@
+{
+  "criteria": "The deliverable must have exactly three lines. Every line must start with a capital letter. It must mention autumn.",
+  "criteriaHash": "eb28c2908b7899d9ffaaf265f2a29a38493914ff8d183c793d8a309aac230650",
+  "deliverable": "Autumn arrives quietly\nleaves turn gold in the rain\nThe year exhales",
+  "deliverableHash": "ef842528175bd9c3e7b2f35909e3776a0ab2d27ab9bfbe3617a847b3899e747b",
+  "l0": {
+    "claim": {
+      "level": 0,
+      "verdict": "FAIL",
+      "reqHash": "c4e53d63223f234a503b5f5feee840d17cf3705d7182360e0b826d405d867dd4",
+      "respHash": "c8e2c1e0344a897b5ee66cbe78fa0a001c3ed23483aed7d95cdf1be26965b00a",
+      "signature": "0x537e3952f3ef4ff839369137ac5e90ad4c8636ddb7835dca6372ebd074eb45e07e55f4340279cdc1f4e4d50857f83d7701094a2254941f313fb627b3f1db0b821c",
+      "signingAlgo": "ecdsa",
+      "signingAddress": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+      "signatureKind": "provider_tee"
+    },
+    "responseB64": "eyJpZCI6ImNoYXRjbXBsLTRhMDlkNGExLTUwODktNDBjYy04ODdiLWJlMWU4YzAzNGVlMyIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wicmVhc29uXCI6XCJUaGUgZGVsaXZlcmFibGUgaGFzIHRocmVlIGxpbmVzLCBidXQgdGhlIHNlY29uZCBsaW5lIGRvZXMgbm90IHN0YXJ0IHdpdGggYSBjYXBpdGFsIGxldHRlci4gSXQgbWVudGlvbnMgYXV0dW1uIGJ1dCBmYWlscyB0aGUgY2FwaXRhbGl6YXRpb24gcnVsZS5cIiwgXCJ2ZXJkaWN0XCI6XCJGQUlMXCJ9In0sImZpbmlzaF9yZWFzb24iOiJzdG9wIiwibG9ncHJvYnMiOm51bGx9XSwibW9kZWwiOiJRd2VuL1F3ZW4zLVZMLTMwQi1BM0ItSW5zdHJ1Y3QiLCJjcmVhdGVkIjoxNzk0MDU5ODU0LCJ1c2FnZSI6eyJwcm9tcHRfdG9rZW5zIjoxMzYsInRvdGFsX3Rva2VucyI6MTc1LCJjb21wbGV0aW9uX3Rva2VucyI6MzksInByb21wdF90b2tlbnNfZGV0YWlscyI6eyJjYWNoZWRfdG9rZW5zIjoxMjh9fX0=",
+    "chatId": "chatcmpl-4a09d4a1-5089-40cc-887b-be1e8c034ee3",
+    "signer": "0x2665cce942fa427ef30d87f4b0bff67fb7645462"
+  },
+  "grounds": {
+    "errorType": "PHANTOM_ELEMENT",
+    "target": "the claim that a line starts with a lowercase letter",
+    "detail": "Every line of the deliverable starts with a capital letter; the reason relies on a lowercase opening that is not in the record."
+  },
+  "appeal": {
+    "outcome": "UPHOLD",
+    "finalVerdict": "FAIL",
+    "comparison": {
+      "decision": "UPHOLD",
+      "reason": "The record plainly shows line two begins with lowercase 'leaves', so the phantom-element ground is factually baseless. The original FAIL is reasonably supported: three lines, autumn mentioned, but capitalization rule violated.",
+      "chatId": "a1ee9a4f95a3463e8b24901353253c22"
+    },
+    "blind": {
+      "verdict": "FAIL",
+      "reason": "Second line starts with lowercase 'leaves', violating the requirement that every line begin with a capital letter.",
+      "reqHash": "50caf69c66542e46f201fdaa8e580220b746bca5c2ec736d16db7a1b2464e26b"
+    }
+  }
+}
