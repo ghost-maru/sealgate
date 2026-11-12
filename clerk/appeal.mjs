@@ -1,7 +1,6 @@
-// Appeal bench (SPEC §8.3, §8.4, §6.1). Stage structure reused from
-// v5 cli/appellate.mjs (integrity in code -> blind panel -> comparison under
-// the clear-error standard), minus the appellant's brief: v7 has no brief,
-// the record is the whole argument (§8.3).
+// Appeal bench (SPEC §8.3, §8.4, §6.1). Stage structure: integrity in
+// code -> blind panel -> comparison under the clear-error standard.
+// There is no appellant's brief: the record is the whole argument (§8.3).
 //
 //   1. Integrity check (code), always against the clerk's primary judgment:
 //      re-run the formal inspection; rebuild the primary request from the

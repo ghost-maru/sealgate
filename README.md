@@ -14,7 +14,9 @@ Unlike escrow or spending-guard tools, which only move money on a
 signal, Sealgate judges the work itself against the criteria — and a
 rejected delivery is never revealed to the buyer. Because the ruling is
 recorded on-chain, it cannot be rewritten or denied later, and anyone
-can check who judged what.
+can check who judged what. Live examples are in TESTNET.md: a delivery
+judged and paid (case 0), a platform suspension reviewed (case 3), and
+a scored contest entry (case 4).
 
 Built for the NEAR Hackathon "Build Beyond Boundaries" (Nov 2026).
 Tracks: Agent Economy · AI Security & Defense · Privacy & Private AI.

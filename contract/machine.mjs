@@ -1,7 +1,6 @@
 // Sealgate reference state machine (SPEC §5).
 //
-// Unlike v5 (where machine.mjs was a hand-maintained mirror of contract.ts),
-// the v7 kernel logic exists once: contract/src/kernel/*.js. Both hosts run
+// The kernel logic exists once: contract/src/kernel/*.js. Both hosts run
 // that same code:
 //   - contract/src/contract.ts  stores state in NEAR collections, reads the
 //     caller / attached deposit / block time from the runtime, and turns a

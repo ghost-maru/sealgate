@@ -29,8 +29,8 @@
 //   primary 1024: a verdict JSON with a <= 400-char reason is ~150 tokens; the
 //     whole signed response must also fit the 1006-byte resp0 container.
 //   panel / comparison 4096: GLM 5.3 Flash spends output tokens on reasoning
-//     before the JSON (v5 saw finish_reason=length at 400 tokens and raised
-//     the budget to 1500); 4096 leaves headroom so finish_reason is "stop".
+//     before the JSON (a 400-token budget ends in finish_reason=length);
+//     4096 leaves headroom so finish_reason is "stop".
 //
 // Overhead bounds P_s (skeleton + chat format, tokens; tokens <= bytes for a
 // byte-level BPE): the judgment skeleton text plus framing is ~2.0 KB of JSON
@@ -145,7 +145,7 @@ export const CALL_GAS = '300000000000000'; // 300 Tgas; unused gas is refunded
 //   SEALGATE_FEE_ACCOUNT            fee account (default: the clerk account)
 //   SEALGATE_OWNER_ACCOUNT          contract owner (registration only)
 //   SEALGATE_OWNER_KEY_FILE         NEAR key JSON of the owner (registration only)
-//   NEARAI_API_KEY                  NEAR AI Cloud API key (same variable as v5)
+//   NEARAI_API_KEY                  NEAR AI Cloud API key
 //   SEALGATE_DEMO=1                 register the demo W1 (30 minutes)
 //   SEALGATE_CLERK_POLL_MS, SEALGATE_CLERK_START_CASE
 export function runtimeConfig(env = process.env) {

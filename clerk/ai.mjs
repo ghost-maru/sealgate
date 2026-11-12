@@ -1,8 +1,8 @@
 // NEAR AI Cloud client implementing the clerk's AI interface (clerk/calls.mjs).
-// Ported from v5 cli/ai.mjs (the official verification flow): preflight
+// The verification flow: preflight
 // attestation -> completion with the exact request bytes -> response
 // signature -> binding checks. Constructed only by the entry point when
-// SEALGATE_LIVE=1; the API key comes from NEARAI_API_KEY (as in v5).
+// SEALGATE_LIVE=1; the API key comes from NEARAI_API_KEY.
 //
 // What the signature covers: a provider_tee signature signs
 // "<model>:<sha256(request bytes)>:<sha256(response bytes)>". The response
