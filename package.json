@@ -1,31 +1,32 @@
 {
   "name": "sealgate",
   "version": "1.0.0",
-  "description": "Inspection-gated escrow for agent commerce on NEAR: TEE-signed AI inspection claims, encrypted responses, and a private appellate protocol.",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "node --test test/machine.test.mjs test/terms.test.mjs test/verify.test.mjs test/encrypt.test.mjs test/panel.test.mjs test/receipt.test.mjs",
-    "check": "node scripts/exhaustive-check.mjs",
-    "reproduce": "node scripts/reproduce.mjs"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "UNLICENSED",
+  "description": "Sealgate: a neutral AI judge on NEAR — sealed record, TEE-signed verdict, one blind appeal, fair exchange.",
   "type": "module",
   "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "near-sdk-js build contract/src/contract.ts build/sealgate.wasm",
+    "test": "node --test test/*.test.mjs",
+    "clerk": "node clerk/main.mjs",
+    "clerk:demo": "node clerk/main.mjs demo",
+    "cli": "node cli/main.mjs",
+    "cli:demo": "node cli/main.mjs demo",
+    "check:exhaustive": "node check/exhaustive.mjs",
+    "check:attacks": "node check/attacks.mjs"
+  },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.32.2",
     "@noble/ciphers": "^2.4.0",
     "@noble/curves": "^2.4.0",
     "@noble/hashes": "^2.4.0",
     "ethers": "^6.17.0",
-    "near-api-js": "^7.4.0",
-    "tweetnacl": "^1.0.3",
-    "zod": "^4.6.7"
+    "near-api-js": "^7.4.0"
   },
   "devDependencies": {
+    "@types/node": "22.7.5",
     "near-sdk-js": "^2.0.0"
+  },
+  "overrides": {
+    "@types/node": "22.7.5"
   }
 }

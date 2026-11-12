@@ -1,6 +1,0 @@
-Release notes for the Kestrel Fan Controller firmware update. The release notes MUST contain all of the following elements:
-(1) The firmware version string "v1.2.0".
-(2) The maximum airflow as a number in CFM.
-(3) A compatibility list naming at least two motherboard models.
-(4) An installation warning telling the user to disconnect power before installation.
-PASS only if every element is present; FAIL if any element is missing.
