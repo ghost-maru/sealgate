@@ -1,8 +1,41 @@
 # Sealgate — SPEC v2: Private Appellate Settlement
 
+**v4 parameterization (2026-11-10).** The fixed parameters of this spec
+(bond rate/floor, windows, the 1% fee) became per-escrow terms, chosen by
+the creator inside constitutional bounds hardcoded in the contract, with
+the fee as a registered schedule and an appeal fee for the executor. The
+mechanism below is unchanged; where a number here conflicts with
+PARAMETERS.md §5, PARAMETERS.md governs. Live proofs: escrows #21/#22.
+
+**v3 generalization (2026-11-10).** On the team lead's direction, Sealgate was
+generalized from inspection escrow into a judge-AI platform: open jobs (a
+bounty market), a second case type (`adjudication` — case file + submission,
+for platform-decision appeals, grant milestones, and similar), and a 1%
+platform fee on judgment settlements. The v2 mechanism below is unchanged and
+governs both case types; the v3 parameters, attribution rules, and the design
+review's must-fixes (M1–M6) live in PARAMETERS.md §4. Live proof: escrows
+#18 (open job), #19 and #20 (adjudication).
+
 Status: LOCKED direction, decided 2026-11-07 (TIK). Supersedes the settle/dispute design of
 SPEC.md (v1). All v1 sections not mentioned here remain in force (accounts, deposit model,
 inspection template, caps). Spike results: spike/RESULTS.md (Day 1 GO).
+
+**Implementation status (2026-11-09 — read this first).** The shipped
+implementation follows this spec's core decisions (claim-based optimistic
+settlement, no publication of criteria or deliverable, deterministic
+integrity stage, blind panel, clear-error standard), and four external
+mechanism reviews then changed the following, which this document predates:
+(1) L1 claims are posted ONLY by a registered appellate executor,
+snapshotted per escrow — the party-posted L1 of §2/§5 was exploitable
+(first-poster-wins) and was redesigned; (2) commitments are salted
+(sha256(salt ‖ text)); (3) the deliverable's ciphertext under the parties'
+shared key is part of the on-chain submission, so the appellate record
+cannot be withheld, and criteria + deliverable are capped at 8 KB (not
+§1's 1 KB / 4 KB); (4) lapses are attributed by the executor's on-chain
+ack_bundle. Where this spec and the code disagree, README.md and
+PARAMETERS.md describe the shipped behavior. (The spike/ directory
+referenced below lives outside this repository; the facts it established
+are summarized in README's Models section and in the test fixtures.)
 
 ## 0. What changed, and why
 
@@ -72,8 +105,9 @@ Expiry as in v1 (Funded past deliver_by -> refund; no claim by settle_by -> refu
   verdict != signed verdict, req_hash does not rebuild from the record, bad signature,
   signer not registered), the appellate outcome is CLAIM VOID regardless of the
   judgment review, and the claimant's bond is slashed to the disputer. The disputer
-  posts this outcome as the L1 claim with the integrity transcript hash attached.
-- L1 claims take a bond of B1 and a shorter window W1 = W/2. No further judgment
+  the appellate executor posts this outcome as the L1 claim (parties cannot post
+  L1 claims; the executor is snapshotted on the escrow at creation).
+- L1 claims carry no bond and a shorter window W1 = W/2. No further judgment
   dispute exists at L1; at window end the L1 outcome is Final.
 - Final execution: PASS -> pay worker; FAIL -> refund buyer.
 - Bond resolution: undisputed claim -> claimant bond returned. Disputed and appellate
@@ -110,7 +144,7 @@ anyone required. (Implementation reuses spike/day1.mjs verification code.)
 ## 6. Parameters (testnet defaults; freeze on Nov 9)
 
 - Claim bond B0 = max(10% of escrow amount, 0.05 NEAR). Dispute bond B1 = 2 x B0.
-  L1 claim bond = B1.
+  L1 claims (appellate executor only) carry no bond.
 - W = 1h (demo), W1 = 30min. Escrow caps and deadlines as in v1.
 - To be reviewed against legal-research.md (standards of review, appeal-bond and
   cost-shifting practice, record-on-appeal, default rules, Kleros appeal escalation)
@@ -130,18 +164,41 @@ committed content (only the parties can check this — and they always can).
 2. FAIL with a signed reason: parties decrypt and read why; outsiders see ciphertext.
 3. Forged claim: a worker posts a claim backed by a genuine TEE signature over their
    own "say PASS" prompt. The buyer's integrity stage flags the req_hash mismatch
-   immediately; dispute; appellate integrity stage voids the claim and slashes the
-   bond. Nothing was ever revealed.
+   immediately; dispute; the forger's attempt to race-post its own L1 claim is
+   rejected by the contract; the appellate executor's L1 claim voids the forgery
+   and slashes the bond (§9, first bullet; escrows #4 under the original rules,
+   #8 after the redesign). Nothing was ever revealed.
 4. Judgment appeal: a borderline FAIL is appealed; the appellate model (blind-first,
    different family) upholds or overturns with its own signed reason.
 
 ## 9. Known limitations (README, stated plainly)
 
+- **L1 posting rights were the design's sharpest hole; closed 2026-11-09 by the
+  appellate-executor redesign.** Originally either party could post the appellate
+  claim once an appeal was funded; the contract checked bond and timing, not
+  content, and L1 claims could not be disputed — a false L1 posted first decided
+  the escrow and the bonds. Now the appellant seals the record to a registered
+  **appellate executor** (X25519 bundle); only the executor's account can post an
+  L1 claim, enforced in the contract (escrow #8: the forger's race-post was
+  rejected on-chain; the executor's VOID settled the escrow without the forger's
+  cooperation). The residual trust is the executor itself: a malicious executor
+  can post a false outcome, but its signed transcript is fully reproducible from
+  the record both parties hold, so the misconduct is provable and the operator
+  is a replaceable registry entry. The production form runs the executor as an
+  attested TEE app whose key is sealed to the attested code, removing operator
+  discretion; on-chain verification of a verdict-only signed response remains a
+  possible additional check, not a substitute (it binds a verdict to *some*
+  request, not to this escrow's committed record).
 - Verdict soundness is not proven by any cryptography here (true of every design in
   this family): the system proves provenance and integrity between the parties, and
   enforces outcomes economically. It does not prove the AI judged well.
 - Injection resistance is empirical (§5). Verdict shopping by re-sampling L0 privately
-  is mitigated by temperature 0 and template pinning, not eliminated.
+  is mitigated, not eliminated. Measured 2026-11-09 (`dryruns/determinism.md`):
+  identical temperature-0 requests returned the identical verdict 6/6 on both
+  models for a clear case, and the identical reason 6/6 at L0 — but the appellate
+  model's reasons varied in phrasing (3 distinct in 6), so hosted sampling is not
+  bit-deterministic and borderline cases can in principle be re-drawn. The bonds,
+  the dispute path, and the replay registry are the bound, not the temperature.
 - A party offline for a whole window can lose by default; the CLI watcher and the
   co-sign fast path mitigate; watchtowers are future work.
 - The final level's published outcome stands on bonds and bilateral verifiability,

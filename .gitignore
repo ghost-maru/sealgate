@@ -4,3 +4,7 @@ node_modules/
 build/*
 !build/sealgate.wasm
 contract/build/
+bundles/
+
+!build/sealgate7.wasm
+sealgate-v7/ops/clerk-live.log

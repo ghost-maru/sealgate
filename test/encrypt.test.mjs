@@ -43,3 +43,16 @@ test('a different escrow id derives a different key (HKDF salt separation)', () 
   const k8 = deriveKey(buyer.secretKey, worker.publicKey, 8);
   assert.notDeepEqual(Buffer.from(k8), Buffer.from(kBuyer));
 });
+
+test('encrypt: L1 envelope fits a reasoning-heavy response and round-trips', () => {
+  const a = genKeypair(); const b = genKeypair();
+  const keyA = deriveKey(a.secretKey, b.publicKey, 7);
+  const keyB = deriveKey(b.secretKey, a.publicKey, 7);
+  const big = Buffer.alloc(5000, 65); // ~5KB raw response JSON (GLM reasoning_content)
+  const ct = encryptResponse({ key: keyA, escrowId: 7, level: 1, responseBytes: big, respHashHex: 'ab'.repeat(32) });
+  assert.equal(Buffer.from(ct, 'base64').length, 24 + 8192 + 16);
+  const back = decryptResponse({ key: keyB, escrowId: 7, level: 1, respHashHex: 'ab'.repeat(32), ciphertextB64: ct });
+  assert.ok(back.equals(big));
+  // L0 keeps the small bucket and still rejects oversize.
+  assert.throws(() => encryptResponse({ key: keyA, escrowId: 7, level: 0, responseBytes: big, respHashHex: 'ab'.repeat(32) }), /too large/);
+});

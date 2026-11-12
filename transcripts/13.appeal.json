@@ -1,0 +1,15 @@
+{
+  "escrowId": 13,
+  "outcome": "VOID",
+  "finalVerdict": "PASS",
+  "integrityFailures": [
+    "req_hash does not rebuild from the record (request binding failure)"
+  ],
+  "blind": null,
+  "comparison": null,
+  "postedBy": "appeal.sealgate-ghost.testnet",
+  "ackedOnChain": true,
+  "l0Undecryptable": false,
+  "l1Encryption": "parties-key",
+  "at": "2026-11-09T04:02:20.942Z"
+}

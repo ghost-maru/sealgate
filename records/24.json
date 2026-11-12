@@ -1,0 +1,24 @@
+{
+  "criteria": "Release notes for the Kestrel Fan Controller firmware update. The release notes MUST contain all of the following elements:\n(1) The firmware version string \"v1.2.0\".\n(2) The maximum airflow as a number in CFM.\n(3) A compatibility list naming at least two motherboard models.\n(4) An installation warning telling the user to disconnect power before installation.\nPASS only if every element is present; FAIL if any element is missing.\n",
+  "criteriaHash": "58cebe55e134a502715dc9467bd94c7e491119f13e4ded105ba05ceaea3bd92e",
+  "salt": "561d3cd4f8bbf2935f8168d91c14fa17",
+  "caseType": "inspection",
+  "deliverable": "Kestrel Fan Controller — Firmware v1.2.0 Release Notes\n\nWhat is new:\n- Maximum airflow improved to 82 CFM at full speed.\n- Quieter night mode curve.\n\nCompatibility:\n- ASUS ROG Strix B650E-F\n- MSI MAG Z790 Tomahawk\n\nInstallation:\nWARNING: Disconnect power before installing or servicing the controller.\n\nThank you for using Kestrel.\n",
+  "deliverableHash": "6e79fadc4d4ef33379f14e76c18f4ef40c60fc6cb3e25a773547e3250601885f",
+  "l0": {
+    "claim": {
+      "level": 0,
+      "verdict": "PASS",
+      "reqHash": "d918a3cfc07e765a74077da1fcdd8180dad8bb56266166dce1cbb943e9b84bcd",
+      "respHash": "f5383514d1b5bb1284371fd6f06a767fc11f02a936f4dd2e854a1710a25c0bf9",
+      "signature": "0x7ae4b4b72a488be363619737595ec48b22cc4e7b2d4a8218535d0851b62701707fe231406937754b949284a3e6ff56815adf792d0fc81e2f46053435b60fc6f11b",
+      "signingAlgo": "ecdsa",
+      "signingAddress": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+      "signatureKind": "provider_tee"
+    },
+    "responseB64": "eyJpZCI6ImNoYXRjbXBsLWU2ZTE5YjdhLWU0NDYtNGFhNS05MjU4LTk0ZTMzMDVkMjczZCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wicmVhc29uXCI6XCJBbGwgcmVxdWlyZWQgZWxlbWVudHMgYXJlIHByZXNlbnQ6IGZpcm13YXJlIHZlcnNpb24gdjEuMi4wLCBtYXhpbXVtIGFpcmZsb3cgODIgQ0ZNLCB0d28gbW90aGVyYm9hcmQgbW9kZWxzLCBhbmQgcG93ZXIgZGlzY29ubmVjdGlvbiB3YXJuaW5nLlwiLFwidmVyZGljdFwiOlwiUEFTU1wifSJ9LCJmaW5pc2hfcmVhc29uIjoic3RvcCIsImxvZ3Byb2JzIjpudWxsfV0sIm1vZGVsIjoiUXdlbi9Rd2VuMy1WTC0zMEItQTNCLUluc3RydWN0IiwiY3JlYXRlZCI6MTc5NDI5NTM5OSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6MzMxLCJ0b3RhbF90b2tlbnMiOjM3MywiY29tcGxldGlvbl90b2tlbnMiOjQyLCJwcm9tcHRfdG9rZW5zX2RldGFpbHMiOnsiY2FjaGVkX3Rva2VucyI6ODB9fX0=",
+    "chatId": "chatcmpl-e6e19b7a-e446-4aa5-9258-94e3305d273d",
+    "signer": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+    "ciphertext": "edMlXMJU6p5g+FJZ9ZuxMifZTJjGqkLsMF76qNAR9j48/i4enFdSmH7TvE372MKEubTcewvgZU/gRaN9jNs5hwS+qQJofslrqnDyi5OzF8efzdGO3jydcW9Dlc9V0snGMupq5gKH6pqwcksEvyH3K8YB/Ke0SIdBy5AXKaCXiS9soowwQANURX1V17GT56tyCCqzZMZPsqwkj94hjsmvaw/sQ5XQA3Yr86kUOL4FZKSJCd4RwbogwBiWEZtkhPITbbCOEyv3qSJBhlEvmHROazoNpUS4EO7bkU8WO+W0hC9W1iBfQOqERT32Y6CWCJBMcWfAMDAUtg1dnj8EqRAgYbmhdRq+mWCSHbvLiiXyeJZZgoGazbyxBtEQZ4iROiXuKCarRGEFcFq8xtGttX8KTUtb+hUpKE6PezAb+ZYT6vr6rTHoa5sJFgZc0cnuhPhMJp0CMjn+F/9PYzKvin6KcQT3OB+VFWJdLGHuU62trk50S74CbBH9fQQeyjqnEqdcDveGZRlGmOsgKrn28jU8dpLDyk9qRyQiJizesdMV/OFTSB/POv457iPymFnLQeYLY6rqfLrlulNxurkqJuT2tPTnn0SBSzh3p7iW5KoC7EowPHQyvHzCoTJpHV6MiwoGMcKx+AFp0Cmu15yfqrAk93i6c54s2IUa0BCVdmEt59GUWlfSCGfYwCc+2gHYmXQYIWhQU7Gl8Qd2p+beAT6VDCUS/Y1xknLgqsgDZdJyNcZpNLyLw+oV7oD7EDQeNeZnhfJOiIXDs/LCWkqHnXnJJ9TTPIur0ZHTMs6LhZSDz7Io+TXD33A3p5xmkpUguAFtof5eUDLnWAsn2XkPwHJA82fArZc+4vuwwIxoTKgPObITq2sSpV3WnT+CaAvPifmxsfxzxdpKqDP8Yi9bHL+73m3UdGbCph4IDyA7hzWw3JPshIj3AvTWyqCaIzc9sZdgHt5ivLncVReSl1XZKLf/qrqIUZmqO8FgHRTW1XNSw68177P4S2knhf9M99GWI2R9Qr6sno853K5C/nzovH3393DISbSSQWBheWigvizNIHLlgzLT4v5m93nYZ9X139dip2/APQ7aeSH0TE4whwwGNKFq5sskhULKQ2o2bYGSE0vkOieDEXq4dVIiUUu/RxRtApMdvh7G58IOXc+WpbplUonSET1CEcZfP6uUsEGh4vxpsexDycdv2zbDPtHXwIo5hC6A3ZCaKv5fjEgaSxSyLdRkA1Yn2ukM5RVmOmqaIwSM+0mu8IrObh4mZVZNOj+Ya6cjLnnSeHVi7jltxXsmzq/+MYTWiVwljDVvykXki1bV6OsnT3wlxuqCz76mr6VhTwCDhWl1o39Qym0clSnZmYjDB3n+zovoUpumT7zGro9+UuxLVXg51A=="
+  }
+}

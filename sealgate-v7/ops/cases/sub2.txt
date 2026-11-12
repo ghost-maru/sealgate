@@ -1,0 +1,5 @@
+# Deliverables
+Market report: five competitors.
+
+Summaries: Alpha - cheapest enterprise tier. Beta - strongest API. Gamma - lowest price overall. Delta - premium support. Epsilon - best onboarding.
+All five competitors are covered.

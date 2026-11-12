@@ -4,8 +4,8 @@ import { readFileSync } from 'node:fs';
 import { verifyIntegrity, verifyResponseBinding, parseVerdict } from '../shared/verify.mjs';
 import { validateGrounds, buildInspectionRequest } from '../shared/templates.mjs';
 
-// Uses the REAL fixtures captured by the Day-1 spike (../spike/results).
-const R = new URL('../../spike/results/', import.meta.url);
+// Uses the REAL fixtures captured by the Day-1 spike (vendored in test/fixtures/).
+const R = new URL('./fixtures/', import.meta.url);
 const read = (n) => readFileSync(new URL(n, R));
 const reqJson = JSON.parse(read('request.json').toString('utf8'));
 const sig = JSON.parse(read('signature.json').toString('utf8'));
@@ -66,4 +66,14 @@ test('grounds validation (legal proposal 3: pre-specification is admissibility)'
   assert.ok(validateGrounds({ errorType: 'VIBES', target: 'x', detail: 'y' }).length > 0);
   assert.ok(validateGrounds({ errorType: 'MISSED_ELEMENT', target: '', detail: 'y' }).length > 0);
   assert.ok(validateGrounds({ errorType: 'MISSED_ELEMENT', target: 'x', detail: 'y'.repeat(600) }).length > 0);
+});
+
+test('validateBundleSalt: unambiguous salt encoding (round-3 N2)', async () => {
+  const { validateBundleSalt } = await import('../shared/verify.mjs');
+  assert.equal(validateBundleSalt('a'.repeat(32), true), null);
+  assert.match(validateBundleSalt(null, true), /requires the bundle salt/);
+  assert.match(validateBundleSalt('', true), /32 lowercase hex/);
+  assert.match(validateBundleSalt('XYZ', true), /32 lowercase hex/);
+  assert.equal(validateBundleSalt(null, false), null);
+  assert.match(validateBundleSalt('a'.repeat(32), false), /takes no salt/);
 });

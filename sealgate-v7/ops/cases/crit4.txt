@@ -1,0 +1,5 @@
+# Case file
+Governing terms: Marketplace Terms of Service, section 4 (spam): an account may be suspended when it posts the same listing more than three times within one hour. Section 9 (appeals): a suspended user may appeal once, with evidence.
+
+## Zeroth decision
+Action: account suspended on 2026-11-01. Grounds stated by the platform: automated systems flagged repeated listing posts; no listing IDs or timestamps were recorded in the suspension notice. Promise: if this decision is overturned, the account is reinstated and the suspension is removed from its record.

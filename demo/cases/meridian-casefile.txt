@@ -1,0 +1,10 @@
+CASE: Meridian Grants — Milestone 2 judgment, grant G-117 (peristaltic pump prototype)
+
+GOVERNING TERMS (Grant Agreement, Milestone 2):
+The Milestone 2 payment of 0.8 NEAR is released only if the milestone report submitted by the grantee contains ALL of the following:
+1. Endurance test results showing at least 200 completed pump cycles, with the measured flow rate.
+2. A cost breakdown table of the prototype's parts and fabrication.
+3. A reference (name or link) to the public data repository where the raw test logs are stored.
+If any element is absent, the milestone is not met and the payment is withheld.
+
+QUESTION PRESENTED: On the material in the submission, are the Milestone 2 terms satisfied? PASS means the milestone is met and the payment is released. FAIL means it is not met.

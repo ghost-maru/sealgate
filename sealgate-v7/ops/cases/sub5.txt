@@ -1,0 +1,25 @@
+# Competitor report
+
+## Alpha
+Alpha sells the Alpha One printer at a mid-range position.
+## Beta
+Beta sells the Beta Scan scanner for offices.
+## Gamma
+Gamma sells the Gamma Pro multifunction device.
+## Delta
+Delta sells the Delta Mini compact printer.
+## Epsilon
+Epsilon sells the Epsilon Lab device to laboratories.
+
+## Price table
+| Competitor | Price (JPY) |
+|---|---|
+| Alpha | 48,000 |
+| Beta | 35,500 |
+| Gamma | 72,000 |
+| Delta | 21,800 |
+| Epsilon | not disclosed |
+
+Price sources: manufacturer web stores, checked 2026-11-10. Epsilon
+publishes no price on its web store, so its row uses the exception
+in the criteria and states "not disclosed".

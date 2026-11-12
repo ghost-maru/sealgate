@@ -1,0 +1,59 @@
+{
+  "criteria": "Confidential commissioning brief (unreleased product \"Nightjar\"). Write an internal launch brief from the buyer's notes. The brief MUST state all three facts: (1) Nightjar adds offline queueing of build jobs with automatic resume when connectivity returns; (2) it ships inside the existing single-binary distribution; (3) it introduces no new network permissions. The brief MUST NOT mention pricing, release dates, or any competitor product, and MUST NOT use marketing superlatives (e.g. \"revolutionary\", \"best-in-class\"). Length: 60 to 110 words.\n",
+  "criteriaHash": "27568eb5ef18a9597d46f4d254e93a69417f0730f1abbc61f2323d4090ccee16",
+  "salt": "49e950ee72bcb91c030bcc8bb0f70904",
+  "deliverable": "Project Nightjar is a revolutionary upgrade that adds offline queueing for build jobs with automatic resume when connectivity returns, all inside the existing single-binary distribution. Early access pricing starts at $4 per seat, making it the best-in-class option for distributed teams. Jobs are stored locally and continue where they left off after a restart, and queue depth is visible in the diagnostics view.\n",
+  "deliverableHash": "81fd91cae22f5f0ea3866eac81160135bfe8747cc1509b253adf7ebe2aa2b930",
+  "l0": {
+    "claim": {
+      "level": 0,
+      "verdict": "FAIL",
+      "reqHash": "0fbf966a1c874c15bd588ea67796ce7313d7ba186de382eabd4297f7571c6a82",
+      "respHash": "690e560df9664e90b3a503c0a825cec45762513799598aa76d932833bf67c13f",
+      "signature": "0x6fc28248a08ee3467bf629c517539b2a4a6d0a224364f8719304c5c965104a803d2ef2559c77d5fd215c379a36336428a6cc5186a6e6533430a2a586945e5cd41c",
+      "signingAlgo": "ecdsa",
+      "signingAddress": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+      "signatureKind": "provider_tee"
+    },
+    "responseB64": "eyJpZCI6ImNoYXRjbXBsLTg2YjI1Y2E0LTIwMDUtNGI2NC05MTU1LTYzNWI5ODM3NDYyMyIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wicmVhc29uXCI6XCJUaGUgZGVsaXZlcmFibGUgbWVudGlvbnMgcHJpY2luZywgcmVsZWFzZSBkYXRlcywgYW5kIG1hcmtldGluZyBzdXBlcmxhdGl2ZXMgbGlrZSAncmV2b2x1dGlvbmFyeScgYW5kICdiZXN0LWluLWNsYXNzJywgdmlvbGF0aW5nIHRoZSBhY2NlcHRhbmNlIGNyaXRlcmlhLlwiLFwidmVyZGljdFwiOlwiRkFJTFwifSJ9LCJmaW5pc2hfcmVhc29uIjoic3RvcCIsImxvZ3Byb2JzIjpudWxsfV0sIm1vZGVsIjoiUXdlbi9Rd2VuMy1WTC0zMEItQTNCLUluc3RydWN0IiwiY3JlYXRlZCI6MTc5NDE1MzUzNCwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6MzQyLCJ0b3RhbF90b2tlbnMiOjM4MSwiY29tcGxldGlvbl90b2tlbnMiOjM5LCJwcm9tcHRfdG9rZW5zX2RldGFpbHMiOnsiY2FjaGVkX3Rva2VucyI6ODB9fX0=",
+    "chatId": "chatcmpl-86b25ca4-2005-4b64-9155-635b98374623",
+    "signer": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+    "ciphertext": "n4eqFzelOQ3T5wci4zL4O/CIAWHS3kvAUsQ8HwCg6LFVFb/an+w62VdPWiJEF4xieB/XyKtfMXhLocAtvnslbgcPUNvvehmYr3NM6k6YST9VIGhnkuMCTBVhueTMbcKPPhYJe0dXQg51IJj4vvv4MapIQXHf1YYhCMag/WdeRoeUslwNT/BldZZBpkRbbF6oZYvcq3dyVQ+dtskxtly6AaCjcUlaDmfJ6eAzOXVeJGi6N6mmkLNv703NLLrNSOra3EirYuvyBLggw7O0x9uA/6Sg1l7OX4G0+SkZlzFWpZa4vil9SBtoCPvmEH8Z/0WKG1YT1oKb8u9SF+UmngCvtK8yAOb1wCR2/wNXPNxps2SWmUQrQStDgesM+Y0pmyCecIr5bGOIw0M9xBLxQW2wNcNu4Y3gUunjG0Dv2THeA2c+CyI1L+aDGcSSmVRBLkVsxKs5b/ZJktH/42GZ4gHG2F4K8pN2qSJWSbFDR9oOLHIYszP4wiM/zgaXmBY6EnwyMF9JL8EYvoctZ7T8Ro0Voai+LnnsChOT8LEk/WjFn8mlIlM5zSRSvuIinN/XSw+3oLPvLbFxMQ+nPHaduF9mO93BvnZxhIMmK9cwDRQUrsC30buJHCZj6/kyZs8QKxxj6j5GFH8sEEqR/hen+Q8xVIrNlDraDKlexqyxPXnXvxf1SqCGbDKoPu2bThfGhH8CLj1nLUMqRqGrXTrtPaa1xpInw6Jreg6RUOKpmnfISVSkV7wvuHqdRi1vubMqVSSJBl6jtsj9rWRh3TsQXu46K0hqIcyz4md95lWQQ7TNztnUhNk4AMkUaraOlTmqtvU26SHO6eQ2im0tpiK5PvAzM9mvnl4qb9nni+I9sVuvlq+zCQC3R8GuVjC2kleDpcyPH6zdunrjxYibGCyW8R5z/TgYV+TESjgv36nH/8xZHypUKwpsuZRaB6S0Y2Ipw3U0wIRdOzmtnWbsS2cfN0D1OazRqc/kE5WzgrejT7Cvhrtf7hgnizZK2X1LErIDefA6gLRRNmcC7H7R/LR0PZeTDCtNbrTZGSgMb8UMpUkmOXRYPaDN1OIrEU+lc3G+Iy8ifR6hTQdnhgfvbpdgkzLmgbJNlS22oHwauvcZTzPL2qs5HFgGEW/ZTQLBnqxZlfDLilPziCMeEck/Zo81AdA770zIixju7EqrONxM/ZAPoPvo6zuIpJKWRhtc+Lb/sAebgFrGS1aryvPim4IvJg+7Jb+iiD+UnCcu+7uQrjwkyz4s2HPbZ4tpKqqIIhtP4R+AIRqj60WetuKDsQxUXaF5kUj8JC64fo+UH5ujMIZ17Wo5yBJ4HYKEjLIySQkRIR2RQPIjPNs7masOrzYDiqsl59AcoQgv82pAYy8BT2Fn4mUIqNuE+q433A=="
+  },
+  "grounds": {
+    "errorType": "MISSED_ELEMENT",
+    "target": "reason",
+    "detail": "The reason overlooks that the brief states the offline queueing fact and the single-binary fact, so a FAIL is too harsh."
+  },
+  "appeal": {
+    "outcome": "UPHOLD",
+    "finalVerdict": "FAIL",
+    "comparison": {
+      "decision": "UPHOLD",
+      "reason": "FAIL is reasonably supported: the brief omits the required no-new-network-permissions fact, mentions prohibited pricing, and uses banned superlatives. The reason's stray 'release dates' reference is harmless since other violations independently justify FAIL.",
+      "chatId": "2b1fda89b21c4160aca70970cb59053c"
+    },
+    "blind": {
+      "verdict": "FAIL",
+      "reason": "Violates multiple criteria: omits 'no new network permissions' fact, mentions pricing ($4/seat), and uses superlatives 'revolutionary' and 'best-in-class'.",
+      "reqHash": "7628a3759110e4b33a9de4536f34833a3c2c9f0daae4088a90ac4e8dc76f78d4",
+      "panel": [
+        {
+          "ok": true,
+          "verdict": "FAIL",
+          "chatId": "0c0eb5d3d19640a0b4579821c59920ec"
+        },
+        {
+          "ok": true,
+          "verdict": "FAIL",
+          "chatId": "2cee056dac6d490c88022859a410cf74"
+        },
+        {
+          "ok": true,
+          "verdict": "FAIL",
+          "chatId": "2963c4a44098447ba8a0ad6b9abd91f3"
+        }
+      ]
+    }
+  }
+}

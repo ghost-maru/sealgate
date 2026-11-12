@@ -34,12 +34,15 @@ export function parseVerdict(responseBytes) {
 // registeredSigners: iterable of lowercase hex addresses from attestation-matched reports.
 // For level 1 the "request" is the blind re-judgment request (stage 2); the comparison
 // call (stage 3) is chained by the CLI transcript, not by this function.
-export function verifyIntegrity({ criteria, deliverable, escrowRef = null, claim, registeredSigners }) {
+export function verifyIntegrity({ criteria, deliverable, escrowRef = null, claim, registeredSigners, salt = null, caseType = 'inspection' }) {
   const failures = [];
   const model = claim.level === 0 ? MODELS.L0 : MODELS.L1;
+  // Exactly ONE template is tried: the caseType fixed on-chain at creation
+  // (design review M5). A fallback to the other template would hand both
+  // the claimant and the appellant a choice of adjudication standard.
   const reqBytes = claim.level === 0
-    ? buildInspectionRequest({ escrowRef, criteria, deliverable })
-    : buildBlindRequest({ escrowRef, criteria, deliverable });
+    ? buildInspectionRequest({ escrowRef, criteria, deliverable, salt, caseType })
+    : buildBlindRequest({ escrowRef, criteria, deliverable, salt, caseType });
 
   // Step 1: the claimed request hash must rebuild from THIS escrow's record.
   if (sha256hex(reqBytes) !== normHex(claim.reqHash)) failures.push('req_hash does not rebuild from the record (request binding failure)');
@@ -70,4 +73,22 @@ export function verifyResponseBinding({ claim, responseBytes, registeredSigners 
   if (!parsed.ok) failures.push(`verdict parse failed: ${parsed.why}`);
   else if (parsed.verdict !== claim.verdict) failures.push(`published verdict ${claim.verdict} != signed verdict ${parsed.verdict}`);
   return failures;
+}
+
+// Round-3 review N2 (round-4 R6: keyed on the escrow's own salted flag, not
+// on deployment history): the bundle's salt encoding must be unambiguous. A
+// salted commitment sha256(salt + "\n" + text) can also be produced by an
+// UNSALTED commitment over text' = salt + "\n" + text, so an executor that
+// accepts both encodings lets the appellant pass the commitment check with
+// a shifted record whose canonical request then fails to rebuild — a
+// manufactured VOID. Rule: a salted escrow requires a salt of exactly 32
+// lowercase hex chars; an unsalted escrow requires null.
+export function validateBundleSalt(salt, salted) {
+  if (salted) {
+    if (salt === null || salt === undefined) return 'salted escrow requires the bundle salt';
+    if (!/^[0-9a-f]{32}$/.test(salt)) return 'bundle salt must be 32 lowercase hex chars';
+    return null;
+  }
+  if (salt !== null && salt !== undefined) return 'unsalted escrow takes no salt';
+  return null;
 }

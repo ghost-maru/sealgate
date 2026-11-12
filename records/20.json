@@ -1,0 +1,34 @@
+{
+  "criteria": "CASE: Meridian Grants — Milestone 2 judgment, grant G-117 (peristaltic pump prototype)\n\nGOVERNING TERMS (Grant Agreement, Milestone 2):\nThe Milestone 2 payment of 0.8 NEAR is released only if the milestone report submitted by the grantee contains ALL of the following:\n1. Endurance test results showing at least 200 completed pump cycles, with the measured flow rate.\n2. A cost breakdown table of the prototype's parts and fabrication.\n3. A reference (name or link) to the public data repository where the raw test logs are stored.\nIf any element is absent, the milestone is not met and the payment is withheld.\n\nQUESTION PRESENTED: On the material in the submission, are the Milestone 2 terms satisfied? PASS means the milestone is met and the payment is released. FAIL means it is not met.\n",
+  "criteriaHash": "2e1c010abccdc9fe7f20f3fd2adfc848a3367b13b5ec833a9bbfd6f5c3f1707c",
+  "salt": "eefc487e58dfde8974687f42d39e8828",
+  "caseType": "adjudication",
+  "deliverable": "MILESTONE 2 REPORT — Grant G-117\n\nEndurance testing: We completed 240 pump cycles on the v2 prototype over three days. The measured flow rate held at 12.4 mL/min (+/- 0.3) for the full run, and no seal failures were observed. Pressure traces were stable after cycle 40.\n\nNext steps: We will begin the 1,000-cycle endurance run next month and start enclosure design.\n\n(Submitted by the grantee team.)\n",
+  "deliverableHash": "fcd800b993bcb16de38bd5d9a1550f7b69e38c70c4ba923b36e3f26212e48f88",
+  "l0": {
+    "claim": {
+      "level": 0,
+      "verdict": "FAIL",
+      "reqHash": "1b2e13587941ea70a5a6668e6767ef0f37cca02912bc1206cd0d7aa8c3195c59",
+      "respHash": "87e5f67ecaf2a10083b81518ba34f7a67c4c9ac602b48b223d7e20f3ba51be55",
+      "signature": "0x146679a2c7226a9dff0dff614b167023c7a2dbfa3a9590a7e917d88c2cba820852ab244e157052b176ca1e7903ee0f8f773d21f95e828711d63d8dcad8c475621b",
+      "signingAlgo": "ecdsa",
+      "signingAddress": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+      "signatureKind": "provider_tee"
+    },
+    "responseB64": "eyJpZCI6ImNoYXRjbXBsLWIyMWRkZGU5LTQwOGYtNDc0Ny1hODg4LTljZDU4ZDkxNWNhNCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wicmVhc29uXCI6XCJUaGUgc3VibWlzc2lvbiBpbmNsdWRlcyBlbmR1cmFuY2UgdGVzdCByZXN1bHRzIHdpdGggMjQwIGN5Y2xlcyBhbmQgZmxvdyByYXRlLCBidXQgbGFja3MgYSBjb3N0IGJyZWFrZG93biB0YWJsZSBhbmQgYSByZWZlcmVuY2UgdG8gYSBwdWJsaWMgZGF0YSByZXBvc2l0b3J5LiBUd28gcmVxdWlyZWQgZWxlbWVudHMgYXJlIG1pc3NpbmcuXCIsXCJ2ZXJkaWN0XCI6XCJGQUlMXCJ9In0sImZpbmlzaF9yZWFzb24iOiJzdG9wIiwibG9ncHJvYnMiOm51bGx9XSwibW9kZWwiOiJRd2VuL1F3ZW4zLVZMLTMwQi1BM0ItSW5zdHJ1Y3QiLCJjcmVhdGVkIjoxNzk0MjM2OTA3LCJ1c2FnZSI6eyJwcm9tcHRfdG9rZW5zIjo0NTEsInRvdGFsX3Rva2VucyI6NDk3LCJjb21wbGV0aW9uX3Rva2VucyI6NDYsInByb21wdF90b2tlbnNfZGV0YWlscyI6eyJjYWNoZWRfdG9rZW5zIjo5Nn19fQ==",
+    "chatId": "chatcmpl-b21ddde9-408f-4747-a888-9cd58d915ca4",
+    "signer": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+    "ciphertext": "yQve8Plx7fm5ZjmjvXRgF23t93J9SeJ9MYkEASwHqUkHOGrNd6CV8ZDQ6iUZ5D5SkTewLx/v9iCdbuVMyTpb8C6gphwGmaHI8OwFuPa0YaOkum5rW82NzrR6rd08vY9q6GlQozMXNb50LsnEk5+ztkwzZn0gCyfvTkhcuJnxgX36NiKZoyXIJ2IYd0uUZfmvMw/kATxumRz5zSCkFwV3KmIN9LapxZxE68OsAA8AGw2ahocNcs/ZJcDlvyUzKaJ6rgTwwVQvPvBw52chCLWG1NXYB1SCmyro0LCOUy/phkck9+/CtltO2lsrAkcSNANoqNgcx561mB0T+aQPKq+m2wt/0otRv2bOngAFedZDa4zUe4ff0rZ9hpLcb/5+VRmJVbeLbdMbtsutP/DlvKo9r4Yu1sF+EBaSu8agLBWgtSr2tsMD2kBhktpkqpATm8z5z5N3M84mqvDDmL571bwnhZGAvzKhMp+4Eq1ChI4QfuujC5HOuUDIhGp7yiM3kxloEeuhsCMf3MPPjjpH3M3EFKwxA7j0HMG9tU7qjor0EYospu2nweN0A3vOhmPe6hWs+AhO8ACwPJ8yHNx26LtZjk4+JSzq4fN5t7Le95pKnRBSr/wxNOlyJhKHM9NyP9uhl8PDLvaGp4goALLsuvvr2LCzWaEAQEd2VMuzZTyt/pWnDi8eDj6F753pZuLektp8BRx28Gpy1ge/ic7o6OdhKezjzGNLLdvMXmsWNctL8WjAK+fsKY3q6DI9ueVQ4Lv779jgBjjQlqIrT1Chbu2PMuMl3dkfWDCRkuAxWk3sGlTPSm9VhhiKpOI7dnvytJn2ojo+ulsj+Gln4LJK/XB2OptIEs1hTBq+LSogbKcNWj5HADKst7UZB5mTFLIShZxpF6WGetRCqgocgrwBx3NpcqUIQ8iAEAUNuXelPbCteMEsbqEtT49JVgu2+FksGUpE837a6rFN07CSKDLV8pU5PmvLCBVQiKrKQXACKk7HFTbndVjy1sWbfs18NtG9zBMIUx7NEqELwAmXzLUrxopa1mESML6S5We7cOo7FnZWQfzXr83IGQAlPSjRdrV4HT8H2JhNJs79YMYAhkr7qGem+FW587hyJrB7p5okaq/NylxUPgBASpJg5qdEYFwGo2e7uyRlbPoY5iUlLjD8qwoAly+1CfbUgQwRFkZ2HoGoQvsmOT6gVrP6Tz/ZqXpxVXutrJjJlOe1zaXr2ZaR7IcMsQInKI+rE2vQzJWRmPPU9j1WriZgRf5ayO0oYS1znr12Z403eK7x/2SjhGmZZwFkvEr3iqy0Z7mwhgVFRFVvkRrWtF91vbbbVRr2Vg3Slw0a25mii3GX2WE81VlflVpVjBileWAYk/GUOcRrtiFd5tXjW6YCYf1d+Q=="
+  },
+  "grounds": {
+    "errorType": "MISSED_ELEMENT",
+    "target": "the L0 reason's claim that elements are absent",
+    "detail": "The reason says the cost breakdown and repository reference are missing; the grantee maintains the report's endurance section and next-steps note were read too narrowly and asks the panel to re-judge the whole record."
+  },
+  "appeal": {
+    "outcome": "UPHOLD",
+    "finalVerdict": "FAIL",
+    "postedBy": "appeal.sealgate-ghost.testnet"
+  }
+}

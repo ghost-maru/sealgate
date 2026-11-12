@@ -1,0 +1,7 @@
+MILESTONE 2 REPORT — Grant G-117
+
+Endurance testing: We completed 240 pump cycles on the v2 prototype over three days. The measured flow rate held at 12.4 mL/min (+/- 0.3) for the full run, and no seal failures were observed. Pressure traces were stable after cycle 40.
+
+Next steps: We will begin the 1,000-cycle endurance run next month and start enclosure design.
+
+(Submitted by the grantee team.)

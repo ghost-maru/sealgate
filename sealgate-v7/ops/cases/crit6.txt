@@ -1,0 +1,15 @@
+# Acceptance criteria: competitor report
+
+The submission must be a market report covering all five competitors:
+Alpha, Beta, Gamma, Delta and Epsilon.
+
+Requirements:
+1. One section per competitor describing its main product.
+2. A price table with one row per competitor.
+3. Coverage must be complete: a report that omits a competitor, or a
+   price table that omits a row, fails.
+
+Exception to requirement 3: if a competitor's price is not publicly
+disclosed, its row may state "not disclosed" instead of a number,
+provided the report names the source that was checked for the price.
+A row that follows this exception counts as complete coverage.

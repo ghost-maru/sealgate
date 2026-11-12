@@ -1,0 +1,7 @@
+Write the launch announcement (120-180 words) for the Lumen Desk Lamp v2, a desk lamp with an adjustable color-temperature dial. Requirements:
+1. Mention the color-temperature range 2700K-5000K.
+2. Mention the price: $89.
+3. Mention that it ships on March 15.
+4. Address the reader directly at least once (use "you").
+5. Do not use the words "revolutionary", "amazing", or "best".
+6. End with a one-sentence call to action mentioning the Lumen website.

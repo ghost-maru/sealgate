@@ -1,0 +1,7 @@
+# Deliverables
+Market report: five competitors.
+
+Price table (USD/month): Alpha 10, Beta 12, Gamma 9, Delta 15, Epsilon 11.
+
+Summaries: Alpha - cheapest enterprise tier. Beta - strongest API. Gamma - lowest price overall. Delta - premium support. Epsilon - best onboarding.
+All five competitors are covered, with the price table above.

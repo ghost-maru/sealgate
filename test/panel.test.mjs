@@ -32,3 +32,11 @@ test('panel: a 1-1 split resolves to the L0 verdict (a split panel is not clear 
   assert.equal(decidePanel([BAD, S('PASS'), S('FAIL')], 'FAIL').verdict, 'FAIL');
   assert.equal(decidePanel([BAD, S('PASS'), S('FAIL')], 'PASS').chosenIndex, 1);
 });
+
+test('panel: with the negation as tiebreak (the VOID-path rule), a split resolves against the forged L0', () => {
+  // Round-5 S3: the judged path ties to the L0 verdict (clear-error
+  // standard), but a VOID-path panel must never tiebreak TO a verdict that
+  // was just proven forged — the CLI passes the negation there.
+  assert.equal(decidePanel([BAD, S('PASS'), S('FAIL')], 'FAIL').verdict, 'FAIL');
+  assert.equal(decidePanel([BAD, S('FAIL'), S('PASS')], 'PASS').verdict, 'PASS');
+});

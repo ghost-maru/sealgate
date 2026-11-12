@@ -1,0 +1,11 @@
+# Acceptance criteria: competitor report (full version)
+
+The submission must be a market report covering all five competitors: Alpha, Beta, Gamma, Delta and Epsilon.
+
+For EACH competitor, its section must contain all three items:
+1. the product name,
+2. the price in JPY,
+3. a maintenance note: one sentence about servicing or support.
+
+The report must end with a summary price table with one row per competitor.
+A section missing any of the three items fails the report.

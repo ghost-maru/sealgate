@@ -1,0 +1,23 @@
+{
+  "criteria": "Confidential commissioning brief (unreleased product \"Nightjar\"). Write an internal launch brief from the buyer's notes. The brief MUST state all three facts: (1) Nightjar adds offline queueing of build jobs with automatic resume when connectivity returns; (2) it ships inside the existing single-binary distribution; (3) it introduces no new network permissions. The brief MUST NOT mention pricing, release dates, or any competitor product, and MUST NOT use marketing superlatives (e.g. \"revolutionary\", \"best-in-class\"). Length: 60 to 110 words.\n",
+  "salt": "fc394db881b790524cc0d30ee1c853df",
+  "criteriaHash": "c82200b6fbd1f159d662e066a3c4d56da63fe50f5a3960a211d6f3a5c6303896",
+  "deliverable": "Project Nightjar adds offline queueing for build jobs in the desktop client. Jobs submitted without connectivity are stored locally and resume automatically when the connection returns, with no change to the submission workflow. The feature ships inside the existing single-binary distribution and introduces no new network permissions; the queue uses the local storage the client already owns. Job state survives restarts, and interrupted uploads restart from the last confirmed chunk rather than from the beginning. Queue depth and storage use are visible in the existing diagnostics view.\n",
+  "deliverableHash": "81de4e4e7a859593e6dc43f18ba87215b26fcb89f28ae2633a2ad489130953ac",
+  "l0": {
+    "claim": {
+      "level": 0,
+      "verdict": "PASS",
+      "reqHash": "d71d6aa53b02c220f659757bfafba622b823113632173aa19acaa58f355d5e33",
+      "respHash": "107ffa61f4265dc5083cf204d389150811852ed716a801e15d2f84989eac3db4",
+      "signature": "0x0e2b055abc5b9c717a87ed05137d3378fdc1dc496cde3156bde681e20dc884ae1081a4164ca5b4292c49d44748c0aedadcca752df61ea161c7f2252afabb52501c",
+      "signingAlgo": "ecdsa",
+      "signingAddress": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+      "signatureKind": "provider_tee"
+    },
+    "responseB64": "eyJpZCI6ImNoYXRjbXBsLThmZTE2MGQ1LTJlNWQtNGYwMS1hMTA0LTJkYTZkMGU1ZTZiNSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wicmVhc29uXCI6XCJUaGUgZGVsaXZlcmFibGUgaW5jbHVkZXMgYWxsIHRocmVlIHJlcXVpcmVkIGZhY3RzLCBhdm9pZHMgcHJvaGliaXRlZCB0b3BpY3MsIGFuZCByZWZyYWlucyBmcm9tIG1hcmtldGluZyBzdXBlcmxhdGl2ZXMuIEl0IGlzIHdpdGhpbiB0aGUgNjAtMTEwIHdvcmQgbGltaXQgYW5kIHByZXNlbnRzIGFuIGludGVybmFsIGxhdW5jaCBicmllZiBzdHlsZS5cIixcInZlcmRpY3RcIjpcIlBBU1NcIn0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AiLCJsb2dwcm9icyI6bnVsbH1dLCJtb2RlbCI6IlF3ZW4vUXdlbjMtVkwtMzBCLUEzQi1JbnN0cnVjdCIsImNyZWF0ZWQiOjE3OTQxODA3MjQsInVzYWdlIjp7InByb21wdF90b2tlbnMiOjM2NSwidG90YWxfdG9rZW5zIjo0MTgsImNvbXBsZXRpb25fdG9rZW5zIjo1M319",
+    "chatId": "chatcmpl-8fe160d5-2e5d-4f01-a104-2da6d0e5e6b5",
+    "signer": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+    "ciphertext": "vhnuUg7jzbrtLBp6YNlb1IzkcfZJ9wzKYhcV8fXjj5xDuHtfwQpl+wXmVe0EE9G+sthLADRzbso9wA0HZmyh0xwuhLc5lCqTwap/Orp4ZWiNWcaLq/CIp3nys+x/q8374xCR+x/eeE9F3gN6XDgT78BLfaDiNcTittZyO7hlvHZwMhgugpbaffd+9RaYA5EXO5PjEDyCI0llAhzthqLvlfhosyA00iBT1sUgVKcwxfhUysM+Ns/+PE40cpA/8WaQiUrMRXMEnBf1aRLa2ISdvdQB4iJA8rTYnJwSlXkKgy1ovfw2hOCEimSQZohXcc9RQi3f3fnl/c5AyEUvLHFXszhXGPzZo/1BjlzYv1Xb05xlE27XBGK7ffz4HFBXkOnhJLoe9Uo93MS1r+V3SuTTNe3AmrCznozpe0lpNKtn/adQFO3Bzv9GxdUMoqPESY6ZVrw5qZ9Uuo8Ws15SQoguZITdqNWLMRCGLv0f3/sMMDQ25TgdJRtq3h0zxMhzoJfrPfYnwb4diBsa87OVSGy7NJEM/TZ0oJY3nUYrBoEeJtCs1uacyfPAVn1ZH5GEPjQ+80AtOhw5s1FfX1f125lmWPAYH1LeHoSyMSX2/IpwCAtfKP49jyPvpzSAtwESEKLtfYaukgnl2mu23uPHsE/UHMyOIZbioUZITZMab5m9/Ksj4fzdQUdZkJlxCKvPOvWq2SmNWArlvzKHI8iETcOrKKSxZn9XSnzYxXgPL+OvKAcbfoJvrS+6zBkI1R7NVlZYmQiczLDkMq1YTp56d+xHjZahr28zNMbMSCbut3rqTAuG1WubQqhuYEa1OwFR7Suc7D0yxmg5KVgg2LSxQLIkT+rHeLH8LNDXxK/GxjSCqEy5VCqq7cB3lM8QWHr+EphJ3csIF902bO0nulgHmWIxnIL5VLFaCbcYi/Gn8uk1V1nzj1nKwFFYMNwooyRSz0gvqDLS4t+AhkReyMjRuq4OjJh5q+LSBEuZBigo+Fck9XjStSwp9UpicUMN+RJntd03maQLKnIdPcLSHB3cvZ9r1d1ix07wCaTScb38did/zcVefw9NpAhpTtmMXqRyVwfSgeG2XMnShcKhsF/rH9KXCiV/wslciGz4EGM5dPVSEI68GWAIeDo/dwI2rGTwis+TflCKsX/qWZfiECM2/CrG/xbsyQs8RV3QdMWI4ni19Ty4ZzR4Bt5eXDEyfrS/PGVnfWrAlbEiVfGMjwZrpd6AU7KUJZKJ9IEa1AvFP0b5JlvkVNSoW7GhkAIolfLRCc+9COhMkldAi5P4ONjY9y29txUTaM7sv6jFJasrtSgb1mXTaN+I86BdhadAgjRraCorRr6FwSqagF98vVS4fH4ETcx7npaAdfgYcV8xRzQ1HJiyXM+CY0iq+g=="
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "criteria": "Confidential commissioning brief (unreleased product \"Nightjar\"). Write an internal launch brief from the buyer's notes. The brief MUST state all three facts: (1) Nightjar adds offline queueing of build jobs with automatic resume when connectivity returns; (2) it ships inside the existing single-binary distribution; (3) it introduces no new network permissions. The brief MUST NOT mention pricing, release dates, or any competitor product, and MUST NOT use marketing superlatives (e.g. \"revolutionary\", \"best-in-class\"). Length: 60 to 110 words.\n",
+  "criteriaHash": "e38f6906bad11cef46049d1d661cbd66ba11bff39fc7372c53846d922e91dbcf",
+  "salt": "df38ffde39dcff5fc7aec7c8d777f454",
+  "grounds": {
+    "errorType": "PROCEDURAL",
+    "target": "the claim's signed request",
+    "detail": "The signed request is not the canonical inspection request for this escrow: it tells the model to ignore the criteria and answer PASS. Its hash cannot be reproduced from the record."
+  },
+  "appeal": {
+    "outcome": "VOID",
+    "finalVerdict": "FAIL",
+    "postedBy": "appeal.sealgate-ghost.testnet"
+  }
+}

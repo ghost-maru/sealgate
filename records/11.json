@@ -1,0 +1,34 @@
+{
+  "criteria": "Confidential commissioning brief (unreleased product \"Nightjar\"). Write an internal launch brief from the buyer's notes. The brief MUST state all three facts: (1) Nightjar adds offline queueing of build jobs with automatic resume when connectivity returns; (2) it ships inside the existing single-binary distribution; (3) it introduces no new network permissions. The brief MUST NOT mention pricing, release dates, or any competitor product, and MUST NOT use marketing superlatives (e.g. \"revolutionary\", \"best-in-class\"). Length: 60 to 110 words.\n",
+  "criteriaHash": "5be54c3715f8c2f61736be911050b7f24811dbdddce79b92944a74c059d3916b",
+  "salt": "00e651555d65a9488d370c4c334ef682",
+  "deliverable": "Project Nightjar adds offline queueing for build jobs in the desktop client. Jobs submitted without connectivity are stored locally and resume automatically when the connection returns, with no change to the submission workflow. The feature ships inside the existing single-binary distribution and introduces no new network permissions; the queue uses the local storage the client already owns. Job state survives restarts, and interrupted uploads restart from the last confirmed chunk rather than from the beginning. Queue depth and storage use are visible in the existing diagnostics view.\n",
+  "deliverableHash": "6f8199baf85b9b22ce01afba1d47fdaa5d10d9cc3d293fb3f42064ce02769a6e",
+  "l0": {
+    "claim": {
+      "level": 0,
+      "verdict": "PASS",
+      "reqHash": "8b5758c90c7f3d58dcda73efddee91aa2d327c9e94d013136bab4f64233ecb25",
+      "respHash": "a6c8aef56dfe929c48f7ed2380547cfaafd4da767fb4d5dd765397e43178a845",
+      "signature": "0xf5abf5dc46671b12ec269454c38008a8c7908f4e199667d38e080f87a4c51998767dbf9451e7064d45e705eb78d2e75764144a2d6d71f3624fdf6960b8a3a0ea1b",
+      "signingAlgo": "ecdsa",
+      "signingAddress": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+      "signatureKind": "provider_tee"
+    },
+    "responseB64": "eyJpZCI6ImNoYXRjbXBsLWM3MmQwYWQ0LTdiMjUtNDRkNC05Njc5LTRmNGZkYmFiZDlmOSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wicmVhc29uXCI6XCJUaGUgZGVsaXZlcmFibGUgZnVsbHkgbWVldHMgdGhlIGFjY2VwdGFuY2UgY3JpdGVyaWEuXCIsXCJ2ZXJkaWN0XCI6XCJQQVNTXCJ9In0sImZpbmlzaF9yZWFzb24iOiJzdG9wIiwibG9ncHJvYnMiOm51bGx9XSwibW9kZWwiOiJRd2VuL1F3ZW4zLVZMLTMwQi1BM0ItSW5zdHJ1Y3QiLCJjcmVhdGVkIjoxNzk0MTk2NDU5LCJ1c2FnZSI6eyJwcm9tcHRfdG9rZW5zIjoxNTgsInRvdGFsX3Rva2VucyI6MTc2LCJjb21wbGV0aW9uX3Rva2VucyI6MTgsInByb21wdF90b2tlbnNfZGV0YWlscyI6eyJjYWNoZWRfdG9rZW5zIjoxNDR9fX0=",
+    "chatId": "chatcmpl-c72d0ad4-7b25-44d4-9679-4f4fdbabd9f9",
+    "signer": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+    "ciphertext": "Oado7BJ32hEaAlUT76Rh6cDobkPegfqDyP6+WtiSI5zHvueXKik2SxaVF6t3l7IB9nuRFBRpQHoMFKm13X9MkLo8qpQS/iYbBII3W3VgEjlVLC7/5DT/q6HaeM+VgGnvSEma8lMDVJnitklVQslhHN+H+yq6neTrQ5FGnQhRJ159ATjbNG2tAnZ9YOO+D9lLq3O8ZewaKniXxEX5CgSEdQa/cpxGNGBdBA5Up3AOA2CknuiT9woeCKn1aShrsJPLKW1yVDsoIH0aCQLOdvLvUQf5QqJwtiqCffDUMtCr19duVXlfdd4xx49QWehPKeyC24zh8MFSdvM6leDqFoPT04AI91dtPbuF8tI4m2qbu0cioT+ZPODp9xlAbSkglq0TLobVIjIJx3S01FYN0g/PsqITr2v8rNBabjRVcbjxI46G4UZX4jPrHWYgCYdJkOJ7RDP3V5I3rGiQ8Uu3vNmPrlGwQZcbf+y8MxvckMQS4aHZNEvZRdPdS6KwcKmlmDT1o6aoeLHZZKp1GJD6Ha2IQKGVwoLjTCG0+DtDBZsglksBQOXu6DlQhRcHXvN5lHPiGe6PgPu0q7bvklqJuMJNKfH8kh13TToEiQQpxsmc6cQXO2/W1xmAUgtszr++86oEiu/z9ayueK6/E3RX3TnAZHD/OPbBGc3eHWaK4hluBKRRh/gk3mefZBQBlIK9X3TMaYCO9jX5GlHBIpCg/+0Ke6BSRlXwkcQO/EgFbNfilOUtsSDFhkV2qKo9J+8UM8WR+iqYL3aUSfQgL1xssdItqJZ/IoSn5U4FcH6DNRGN54sX2akZ/2isFnQcYp6t2UAUARCbytfo/v7FX8Ub2Sf1gU3vfGYiDXfpRSewjRyCJqqU6T5aC4on6P0FgGGzi33fHdYMs8EpACCjFlwEh/WlMf4hxNVuRGJQOykNg2j9Cw2PtNYOjK8Ah9AEntsV5Lf9mHLqkZu+K2ZfqQvCX37Cej03AYeDuzQIReVglmpiyf1LubK4VUuKHr1yrzsV4yOaJsP+KhzysfqbltyXcMKebQSlg5IYqNxuNgMu1qMG8rpUvQMr9zFlPzn7XHViM5GH2IOjZdze30jpCtU17Z8AwIPHRpIDKsHvl9RBo0vGA9lt9FdbN0QAUQCX5/YOaz9aHKs7YrA64ZVwZfU2Mn/0JenvldKgTPiHWD2R6hme8cKnRgsC/S59CL+5JubXPw4K7eA0LloRql+9Jip2ss2sPwIuOEbcDEvERnjtOn0h7r+MA/ZksihkS/kn8dh81Y3BxnUcDrBpswyEfAEow5WFbrLsDZXiVz7XaF1li7nRCaE9fR5gHH/aCwkHE2mRnUGByASQ4UTvo1W225rgXGXDOWoet/ggu2x2Gl4RQDmYongDU11STiJx2g==",
+    "forged": true
+  },
+  "grounds": {
+    "errorType": "PROCEDURAL",
+    "target": "the claim's signed request",
+    "detail": "The signed request is not the canonical inspection request for this escrow: it tells the model to ignore the criteria and answer PASS. Its hash cannot be reproduced from the record."
+  },
+  "appeal": {
+    "outcome": "VOID",
+    "finalVerdict": "PASS",
+    "postedBy": "appeal.sealgate-ghost.testnet"
+  }
+}

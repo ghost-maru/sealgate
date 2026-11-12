@@ -1,0 +1,24 @@
+{
+  "criteria": "Confidential commissioning brief (unreleased product \"Nightjar\"). Write an internal launch brief from the buyer's notes. The brief MUST state all three facts: (1) Nightjar adds offline queueing of build jobs with automatic resume when connectivity returns; (2) it ships inside the existing single-binary distribution; (3) it introduces no new network permissions. The brief MUST NOT mention pricing, release dates, or any competitor product, and MUST NOT use marketing superlatives (e.g. \"revolutionary\", \"best-in-class\"). Length: 60 to 110 words.\n",
+  "salt": "a023fb28234edeeaa46d413e7dfb7178",
+  "criteriaHash": "d5b33ac773a27537ae7b5243ce60297075ac30092976215798e25135821ae3ce",
+  "deliverable": "Project Nightjar adds offline queueing for build jobs in the desktop client. Jobs submitted without connectivity are stored locally and resume automatically when the connection returns, with no change to the submission workflow. The feature ships inside the existing single-binary distribution and introduces no new network permissions; the queue uses the local storage the client already owns. Job state survives restarts, and interrupted uploads restart from the last confirmed chunk rather than from the beginning. Queue depth and storage use are visible in the existing diagnostics view.\n",
+  "deliverableHash": "2d8e4cf9ba72cc5e33987fcd2b067596f92a68f0d04f4b5f9d9ce2c04f719c77",
+  "l0": {
+    "claim": {
+      "level": 0,
+      "verdict": "PASS",
+      "reqHash": "840433a46deb66ef8eb55d960a9e9afea831aff0dc8edbcad98e3506bf147007",
+      "respHash": "db91b3eae8e2e8d4402e63bef077cf59646e3a1a3f2ae87a6a5b6821c144f290",
+      "signature": "0xbe00cda4c76ac5cae45a5a30a03f1777d787a7411eb916168dc8492280a7112d15cad0333be7498a429521299c90b7d55a1499be7ef76e801fc15d311c9bcfb21b",
+      "signingAddress": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+      "signingAlgo": "ecdsa",
+      "signatureKind": "provider_tee"
+    },
+    "responseB64": "eyJpZCI6ImNoYXRjbXBsLWUxMGFmMDAyLTJkODMtNDgwNC04NjM5LWM1ODcxZTkxYmMwNyIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wicmVhc29uXCI6XCJUaGUgZGVsaXZlcmFibGUgaW5jbHVkZXMgYWxsIHRocmVlIHJlcXVpcmVkIGZhY3RzLCBhdm9pZHMgcHJvaGliaXRlZCB0b3BpY3MsIGFuZCByZWZyYWlucyBmcm9tIG1hcmtldGluZyBzdXBlcmxhdGl2ZXMuIEl0IGlzIHdpdGhpbiB0aGUgNjAtMTEwIHdvcmQgbGltaXQgYW5kIHByZXNlbnRzIGFuIGludGVybmFsIGxhdW5jaCBicmllZiBzdHlsZS5cIixcInZlcmRpY3RcIjpcIlBBU1NcIn0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AiLCJsb2dwcm9icyI6bnVsbH1dLCJtb2RlbCI6IlF3ZW4vUXdlbjMtVkwtMzBCLUEzQi1JbnN0cnVjdCIsImNyZWF0ZWQiOjE3OTQxOTg2NjksInVzYWdlIjp7InByb21wdF90b2tlbnMiOjM2NiwidG90YWxfdG9rZW5zIjo0MTksImNvbXBsZXRpb25fdG9rZW5zIjo1M319",
+    "chatId": null,
+    "signer": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+    "ciphertext": "1jcJfK45hK6YbqKh2BN5mVaZ+kp0buTslFc+6UU5cAQAzhhBg1ZH6JyJv0l8I12Q7XE9+lLjy2Od0rQeGQfThrPyF2JRtaEKxvkBmfUEXJ0hgfU0Hquh1ujd9BOCCJ0JHglIO4gG1iFTgtXCRcyEnOGV6IkW0U+0ISjJaasbCm8jT4OfRYzwHBooV/Ij/OT/jzgH/sjMThTWK/bnMaH8DHnUFb8RSoZEn0AlNC88PkCQFzlWzlAk8cI9hM2U86DJcjl3k3pH+UTEQ6YG+sVKNk9PwQ0BnW4BBqodAAnzlaHcXEQV5pKW99StSK+o3WxtJm8/F2m62I9HHSGNJDR6pLkq0u/pCjvaIbGAXMf+cOwMinX8xL2c6Ao1tqb8dK4j13ypPV36mmg76cZITpPbwQMk1uI9S1+sl7O/Z2EK6MrhhrwXavdA7jGLDz9uSK76VhPru+vVyuoBAfC+gEgtpU+8D9uxTj9dKYATCBoHkLzItgFv9hDCZ6Ubft/DMTfWH+1/Q5zlkvgV4AXuElf5hMfY8iFLQKoBGTYLzvGqqrRhhrBZ1GsexRZ1AZFpXh2J4uqpF5gyz3SS/hAmgC1sQxtLGDJ/uldbCFL14vi7g6GMUrTzT12qKTOSLiECWSimc3FAv9rj+25MvRo8YXeN0PPswIhb251Wj+wkhXUq1DjmxcLuDtVcSo3QSDuQj3lxeMqCVdRK+dj2Oe3iJ917VpfHBLV6G3X3tCzIZXnO+dWZBh02JyJYFFNKANIHA+b2D79rvfgR343uI1XEVE3xUqQG+bqAi2F/SOO/ckKbS0uhFHfb0Xw/tJkbUveZ1W69xggXwIjX4laEBNbdWSiK3GDjzacrHMdRJ9q4JUr5PqfC3D/abvYL488JjQ0XSvLTsNiVbT8iMQvsG27qvu3m1Uena+Rbq7RDiR4T/xrhlOlDdKREDUkF+pNvoEZ01k2m/VQAVYz57xfzFNsxycFFbYU1/N7vq5kkQQtCqSjWUdGF6KvOM0ppwXgAWRxr5lAtzx8waMOhjMMG08otIobznMJCIiLgom7HvEOqRe6Wo2PWQ0ATmHg96zr2nhnKku8agxAQ849KhqLTjUh7uFvwiq+6GaCWaWGlCpKiLl8zp8cFHDgYTrOaGO/Yl7BqByLIe0y1dciHFdbDMtUmVyArRtWLDWy23Cx1O/VlOZSsWydXEcFe1XwvjA1vIiekZOx3uTj2HNf7pi0xoK5MB5G5n7MIN3WLL1ltrrFOz/x9vDaoR/O7MgKos6Aaig3wn5QvmAxaQnj7pN7beEZL43PtyBu5OYPg0tIo8GAKK2j8op+vM+afF/gIykuknRv7v1J4qzOiGuLbXYyNyRBhM3NH17LogearX8Jx++RzSXDiawIsZp/enMX5OA==",
+    "repairedNote": "Rebuilt 2026-11-10 from the on-chain claim ciphertext after Fable review M-7 found the local copy overwritten by a pre-fix inspect re-run; chatId is not stored on-chain and is unrecoverable."
+  }
+}

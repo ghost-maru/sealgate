@@ -1,0 +1,16 @@
+{
+  "escrowId": 14,
+  "outcome": "VOID",
+  "finalVerdict": "FAIL",
+  "integrityFailures": [
+    "deliverable ciphertext on-chain cannot be decrypted or does not match its commitment (worker-side record failure)"
+  ],
+  "blind": null,
+  "comparison": null,
+  "postedBy": "appeal.sealgate-ghost.testnet",
+  "ackedOnChain": true,
+  "l0Undecryptable": true,
+  "deliverableUnavailable": true,
+  "l1Encryption": "parties-key",
+  "at": "2026-11-09T04:22:49.123Z"
+}

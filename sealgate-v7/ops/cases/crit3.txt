@@ -1,0 +1,6 @@
+# Acceptance criteria
+Deliverable: a market report on five named competitors (Alpha, Beta, Gamma, Delta, Epsilon).
+Requirements:
+1. The report covers all five competitors.
+2. It includes a price table with a numeric price for every one of the five competitors.
+3. It states a one-line summary for each competitor.

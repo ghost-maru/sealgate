@@ -1,0 +1,3 @@
+# Acceptance criteria
+Deliverable: a market report on five named competitors (Alpha, Beta, Gamma, Delta, Epsilon), covering all five, with a price table.
+Scoring: score the submission from 0 to 10 for completeness and accuracy. Write the score in the reason in exactly this format: "Score: N/10". The verdict is PASS if the score is 6 or higher, FAIL otherwise.

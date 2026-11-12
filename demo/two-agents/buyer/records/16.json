@@ -1,0 +1,7 @@
+{
+  "criteria": "Confidential commissioning brief (unreleased product \"Nightjar\"). Write an internal launch brief from the buyer's notes. The brief MUST state all three facts: (1) Nightjar adds offline queueing of build jobs with automatic resume when connectivity returns; (2) it ships inside the existing single-binary distribution; (3) it introduces no new network permissions. The brief MUST NOT mention pricing, release dates, or any competitor product, and MUST NOT use marketing superlatives (e.g. \"revolutionary\", \"best-in-class\"). Length: 60 to 110 words.\n",
+  "criteriaHash": "d5b33ac773a27537ae7b5243ce60297075ac30092976215798e25135821ae3ce",
+  "salt": "a023fb28234edeeaa46d413e7dfb7178",
+  "deliverable": "Project Nightjar adds offline queueing for build jobs in the desktop client. Jobs submitted without connectivity are stored locally and resume automatically when the connection returns, with no change to the submission workflow. The feature ships inside the existing single-binary distribution and introduces no new network permissions; the queue uses the local storage the client already owns. Job state survives restarts, and interrupted uploads restart from the last confirmed chunk rather than from the beginning. Queue depth and storage use are visible in the existing diagnostics view.\n",
+  "deliverableHash": "2d8e4cf9ba72cc5e33987fcd2b067596f92a68f0d04f4b5f9d9ce2c04f719c77"
+}

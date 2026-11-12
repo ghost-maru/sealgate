@@ -1,0 +1,49 @@
+{
+  "escrowId": 20,
+  "outcome": "UPHOLD",
+  "finalVerdict": "FAIL",
+  "integrityFailures": [],
+  "blind": {
+    "verdict": "FAIL",
+    "reason": "Element 1 is met (240 cycles, 12.4 mL/min flow rate), but the submission contains no cost breakdown table and no reference to a public data repository for raw logs. Two required elements are absent, so the milestone is not met.",
+    "reqHash": "899e7784724f83d6cfe9fabbac2441cd8d1b63e6cb95bbab7ae2a1a7d9e969f5",
+    "panel": [
+      {
+        "ok": true,
+        "verdict": "FAIL",
+        "chatId": "02d0d13296ae45fe97d9d46762c74ec8"
+      },
+      {
+        "ok": true,
+        "verdict": "FAIL",
+        "chatId": "8c5c2de1eb564c4a9e0e41e2941811a5"
+      },
+      {
+        "ok": true,
+        "verdict": "FAIL",
+        "chatId": "df87f2a5cd10415c82787537e4223532"
+      }
+    ]
+  },
+  "comparison": {
+    "decision": "UPHOLD",
+    "reason": "The submission plainly contains no cost breakdown table and no repository reference; only element 1 is present. Both verdicts agree on FAIL, and the appellant identifies no overlooked text. The original verdict is reasonably supported.",
+    "chatId": "3b087b5f51934058a806cd8f547a4fa1",
+    "responseB64": "eyJpZCI6IjNiMDg3YjVmNTE5MzQwNThhODA2Y2Q4ZjU0N2E0ZmExIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsIm1lc3NhZ2UiOnsicm9sZSI6ImFzc2lzdGFudCIsImNvbnRlbnQiOiJ7XCJyZWFzb25cIjpcIlRoZSBzdWJtaXNzaW9uIHBsYWlubHkgY29udGFpbnMgbm8gY29zdCBicmVha2Rvd24gdGFibGUgYW5kIG5vIHJlcG9zaXRvcnkgcmVmZXJlbmNlOyBvbmx5IGVsZW1lbnQgMSBpcyBwcmVzZW50LiBCb3RoIHZlcmRpY3RzIGFncmVlIG9uIEZBSUwsIGFuZCB0aGUgYXBwZWxsYW50IGlkZW50aWZpZXMgbm8gb3Zlcmxvb2tlZCB0ZXh0LiBUaGUgb3JpZ2luYWwgdmVyZGljdCBpcyByZWFzb25hYmx5IHN1cHBvcnRlZC5cIixcImRlY2lzaW9uXCI6XCJVUEhPTERcIn0iLCJyZWFzb25pbmdfY29udGVudCI6IlRoZSBzdWJtaXNzaW9uIGNvbnRhaW5zOiBlbmR1cmFuY2UgdGVzdCByZXN1bHRzICgyNDAgY3ljbGVzLCBmbG93IHJhdGUgMTIuNCBtTC9taW4pIOKAlCBlbGVtZW50IDEgbWV0LiBObyBjb3N0IGJyZWFrZG93biB0YWJsZSDigJQgZWxlbWVudCAyIGFic2VudC4gTm8gcmVmZXJlbmNlIHRvIHB1YmxpYyBkYXRhIHJlcG9zaXRvcnkg4oCUIGVsZW1lbnQgMyBhYnNlbnQuIEJvdGggb3JpZ2luYWwgdmVyZGljdCBhbmQgYmxpbmQgdmVyZGljdCBzYXkgRkFJTC4gVGhlIGdyb3VuZHMgY2xhaW0gbWlzc2VkIGVsZW1lbnRzLCBidXQgdGhlIHN1Ym1pc3Npb24gY2xlYXJseSBsYWNrcyBlbGVtZW50cyAyIGFuZCAzLiBUaGUgb3JpZ2luYWwgdmVyZGljdCBpcyByZWFzb25hYmx5IHN1cHBvcnRlZC4gVXBob2xkLiJ9LCJmaW5pc2hfcmVhc29uIjoic3RvcCIsImxvZ3Byb2JzIjpudWxsLCJtYXRjaGVkX3N0b3AiOjE1NDgyN31dLCJtb2RlbCI6InotYWkvZ2xtLTUuMy1mbGFzaCIsImNyZWF0ZWQiOjE3OTQyMzcxMDcsInVzYWdlIjp7InByb21wdF90b2tlbnMiOjYzNSwidG90YWxfdG9rZW5zIjo3NzMsImNvbXBsZXRpb25fdG9rZW5zIjoxMzgsInByb21wdF90b2tlbnNfZGV0YWlscyI6bnVsbCwicmVhc29uaW5nX3Rva2VucyI6ODYsImNvbXBsZXRpb25fdG9rZW5zX2RldGFpbHMiOnsicmVhc29uaW5nX3Rva2VucyI6ODZ9fX0=",
+    "signature": {
+      "text": "z-ai/glm-5.3-flash:6b5b59952e6f9452b81fabcd6d075b978b6d6c7d91dc92e01315148f3e815f12:b71b287f19649a17ad3e1185ae45363b614cee7ab2e058bdf2cf74c6aecf2693",
+      "signature": "0xa8a37b7ab1c34642649d10c10e0bc94221bf69d7e5ba7d9518245b23866704ed3693e74fe8a02c19976fe2df458903da907a13bdec08a94615cc7b7173baef491b",
+      "signing_address": "0x3b753b4406613c5e70ae640508632b600424fa0c"
+    }
+  },
+  "panelSamples": null,
+  "panelDefault": null,
+  "l1Backing": "panel-sample",
+  "backingOverflow": false,
+  "postedBy": "appeal.sealgate-ghost.testnet",
+  "ackedOnChain": true,
+  "l0Undecryptable": false,
+  "deliverableUnavailable": false,
+  "l1Encryption": "parties-key",
+  "at": "2026-11-09T15:11:58.437Z"
+}

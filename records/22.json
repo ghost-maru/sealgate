@@ -1,0 +1,24 @@
+{
+  "criteria": "Write the launch announcement (120-180 words) for the Lumen Desk Lamp v2, a desk lamp with an adjustable color-temperature dial. Requirements:\n1. Mention the color-temperature range 2700K-5000K.\n2. Mention the price: $89.\n3. Mention that it ships on March 15.\n4. Address the reader directly at least once (use \"you\").\n5. Do not use the words \"revolutionary\", \"amazing\", or \"best\".\n6. End with a one-sentence call to action mentioning the Lumen website.\n",
+  "criteriaHash": "32894952f204aaec109f41341770954e97dc2d64026f547831fbc56196c19dba",
+  "salt": "ac5b30a68fe7677d12d8279930bc1359",
+  "caseType": "inspection",
+  "deliverable": "Meet the Lumen Desk Lamp v2, built around one simple idea: your light should change with your day. A single dial sweeps the color temperature from a warm 2700K for late reading to a crisp 5000K for focused morning work, so the same lamp covers your whole routine. The arm adjusts silently and holds its angle, and the base doubles as a small tray for the things that collect on a desk. If you spend long hours at a desk, this is the lamp that keeps up without getting in the way. The Lumen Desk Lamp v2 is $89 and ships on March 15. Order yours today on the Lumen website.\n",
+  "deliverableHash": "241e14a9f7b89cefa3ed83815d2686ce58aecdfe54ea74c4570374cda9dff543",
+  "l0": {
+    "claim": {
+      "level": 0,
+      "verdict": "PASS",
+      "reqHash": "17147be81182217a597e2fe937383818aad0b29dba90431e8bfa5e66194e3b58",
+      "respHash": "06877e47b45223914a6477410b0390361da67dc7ddfa3a644f0781335c96e71a",
+      "signature": "0xaf35af3038a5159b9186838f212341e956423b10ebc0684ea94411030b426f8c257f24afb1821677bb1024e3a4c9f257b25d54f8f17325a900bf4b507ed194c81c",
+      "signingAlgo": "ecdsa",
+      "signingAddress": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+      "signatureKind": "provider_tee"
+    },
+    "responseB64": "eyJpZCI6ImNoYXRjbXBsLTM3YzEyZDQ4LWFmZDEtNDdmOS1hY2E1LTc1MjJjNDgxODcyOCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wicmVhc29uXCI6XCJUaGUgYW5ub3VuY2VtZW50IG1lZXRzIGFsbCBjcml0ZXJpYTogbWVudGlvbnMgMjcwMEstNTAwMEssICQ4OSwgTWFyY2ggMTUgc2hpcHBpbmcsIGFkZHJlc3NlcyB0aGUgcmVhZGVyIGRpcmVjdGx5LCBhdm9pZHMgcHJvaGliaXRlZCB3b3JkcywgYW5kIGVuZHMgd2l0aCBhIGNhbGwgdG8gYWN0aW9uIHRvIHRoZSBMdW1lbiB3ZWJzaXRlLlwiLCBcInZlcmRpY3RcIjpcIlBBU1NcIn0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AiLCJsb2dwcm9icyI6bnVsbH1dLCJtb2RlbCI6IlF3ZW4vUXdlbjMtVkwtMzBCLUEzQi1JbnN0cnVjdCIsImNyZWF0ZWQiOjE3OTQyNDI3OTYsInVzYWdlIjp7InByb21wdF90b2tlbnMiOjQxOCwidG90YWxfdG9rZW5zIjo0ODAsImNvbXBsZXRpb25fdG9rZW5zIjo2MiwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjgwfX19",
+    "chatId": "chatcmpl-37c12d48-afd1-47f9-aca5-7522c4818728",
+    "signer": "0x2665cce942fa427ef30d87f4b0bff67fb7645462",
+    "ciphertext": "DipkmMuja4zNc+LAcxuCq5wa49lXDW9uLs9W6DmGYZ1zsJ9beSrU09fUfo2dDmiK+9FTG+m/jWtWPAx25IlRU/2+Q8ZHdzSstULYrEYf37oeM89nQMF7kS8ycuw+cEUaCb/pbulIfZBXSj1LwuF3jH0kRCyGSHkB+0/2Z6ku8qTz/W3TbPwONFctKOBR4Oc+zNek6vwdoNVf3Hur2PfjnCA6JDAM2T/o1QLwUBdWIVy9SSYldxALtVnCyA9yu8tRnjPgcJgPpAXGVN5esCjcTv7qB54aefc6CB7GsIUEAtn23OOji9VsJ/s4FngdttzHLcO0sUgVWXWAFCmtD4vlL2ALGz8iWcREgAMavyTAU+fnO8/XoIsawxd9K5jgV0wBrLs8twO4yRpT7OmEd2GSRIOHXI9lWJvIIIQnsxTWduOZPpLwBIMlyBd0gCdhB++9cFjQa3DdzqdZp3icfFqgS+plljOlsGCYI0ofJI3JTXqTyUFnXGikV7o8V0n8VdH37lMJ67vz8p/+XUGxAJWoHPdzhAAU5R4FEr284NJi+qyRZ8dYMzG6cNFjXzL6ISJepYLXn6meBree6BElzNr1lDkBUpUXCRtoc7aq4e/QLUNJgxJg1Yu7wqvViJp9fP9BhVPk5jNFvfP1JXZ9v5Id4273een02Dbo0ohNE+ADqA+magqHwQliJDdGioNevmjAPZNu6t1utXI8DY6CcDvzKF+aJzUKXgTsxeUrwQgKiqsJDICfisVO0RUXMOjS95lxcAkrf2kzQUkp7heCiRyGcOwtcsV0cZbrqLeiLIaN44znHPKZk9OEhDqEAYhgLngy8pUoY8iR1rWOtFM9XrWeOGAAhLmoetifDsHXZQsqKb/X8mnPOVGwDcjuljPkKRqbDizTgSvoTMgDxzYtjd7lH2px7+FZ7SRD7j3cbZoxM7dDJYvh2jVVj7s4zqkw1xo7+lbCP7jaT1dCydqsM/RrOtFrMfBP+BJ9gxEsUwuvkZtQP0CE1pvyV/3yvtjKke0vxqzkc9Z6nKEzq+sl3svfUdSC/GuT4o0X4PqbYfxSNadCHor0w+dcw9cnDEe0W0NKu9va88UpVboCRN9BYyF1is6/JBLEsLPWKbIzTSKGuOBbr3ZdiOASA8Rkv+yNw00Sexkie3uc5kmbR0alSHRto1wD3rdBHW4Vb3a316BLkuatqbO23haQznQjASd5j1Im3AvWoFt0L7ipQi7GQG2D5NkKxbWiiEVQv4d1alGSMYKQdMMcOHJ2Y4kYCvrNi2+XDhEgKPFyOBoFsXqiP9rDMjBKupYKBTfCzPqZ4e0591uguCokv4jsOtSEvD25tOFrM32BFdSTAyXJ+ErwjYtuCXryCoL9jCfj69J1rQXzgvmGkEjoSqwHjw=="
+  }
+}
