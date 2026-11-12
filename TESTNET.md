@@ -39,8 +39,12 @@ NEAR (CAP_1 0.030785825 for this case's lengths + 0.01784 storage for
 Case 2's appeal: the panel of three agreed with the primary FAIL, so no
 comparison call was made; the price was refunded, the appellant's bond
 paid to the requester, and the appeal deposit settled against panel
-usage only. No live overturn occurred — the panel agreed with the
-primary on the merits in every appealed case. The overturn path is
+usage only. No live overturn occurred — in the one appealed
+case (case 2), the panel agreed with the primary on the merits. Case 3
+was not an appeal: as a primary adjudication the judge ruled PASS,
+because the recorded grounds did not hold — two listings were within
+the stated limit of three, and no listing IDs or timestamps had been
+recorded. The overturn path is
 exercised end-to-end by the offline demo (`npm run clerk:demo`) and by
 the exhaustive checker.
 

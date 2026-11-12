@@ -6,7 +6,7 @@ Sealgate is a neutral AI judge for parties who do not trust each other.
 When work is bought online, the buyer can inspect the finished work,
 declare it not good enough, and refuse to pay — and there is no neutral
 party to settle the dispute. Sealgate settles it: the work and the
-acceptance criteria are sealed before judging, an independent AI judge
+acceptance criteria are sealed before judging, a neutral AI judge
 rules pass or fail, payment follows the ruling, and either side can
 appeal once.
 
@@ -14,7 +14,7 @@ Unlike escrow or spending-guard tools, which only move money on a
 signal, Sealgate judges the work itself against the criteria — and a
 rejected delivery is never revealed to the buyer. Because the ruling is
 recorded on-chain, it cannot be rewritten or denied later, and anyone
-can verify that a given delivery passed a given judge.
+can check who judged what.
 
 Built for the NEAR Hackathon "Build Beyond Boundaries" (Nov 2026).
 Tracks: Agent Economy · AI Security & Defense · Privacy & Private AI.
@@ -34,7 +34,7 @@ Tracks: Agent Economy · AI Security & Defense · Privacy & Private AI.
 3. **The verdict is signed in a TEE.** Every verdict is signed inside
    NEAR AI Cloud's secure enclave and recorded on-chain against the
    registry: who judged what, on which record. If the judge stays
-   silent past its deadline, that silence is on the record too, the
+   silent past its deadline, that silence is on the record too: the
    case refunds in full, and anyone can force it to close.
 4. **One appeal, blind.** Either side may appeal once, under equal
    bonds. A different model family re-judges the record without seeing
