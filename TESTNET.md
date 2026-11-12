@@ -31,7 +31,7 @@ the terms pinned at their creation.
 Fees settle in the posting transaction from the signed usage, under a
 cap fixed at case creation. Case 0: deposit cap 0.025785825 NEAR,
 settled charge 0.0254352 NEAR, 0.000350625 NEAR refunded. Case 8, under
-the new rates: create deposit 0.1456 NEAR (0.1 price + 0.03 base fee
+the new rates: create deposit 0.1456 NEAR (0.1 price + 0.03 fixed record fee
 + 0.0156 storage for 1,560 stored bytes); submit deposit 0.048625825
 NEAR (the case cap 0.030785825 for this case's lengths + 0.01784 storage for
 1,784 stored bytes).
