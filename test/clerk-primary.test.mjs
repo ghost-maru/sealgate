@@ -20,7 +20,7 @@ const DELIVERABLES = '# Deliverables';
 async function withSubmissionInputTemplate(sb) {
   const body = 'Judge whether the delivered work meets the criteria.';
   const declarations = { constraints: [], required_inputs: [{ side: 'submission', heading: DELIVERABLES }] };
-  await sb.clerk.call('register_template', { template_id: 'needs-deliverables', body, ...declarations }, templateDeposit({ body, declarations }));
+  await sb.clerk.call('register_template', { template_id: 'needs-deliverables', body, ...declarations }, templateDeposit({ body, declarations, template_id: 'needs-deliverables' }, { clerk: 'clerk.testnet', version: 1 }));
 }
 
 test('hasHeading: whole-line, exact, trailing whitespace ignored', () => {

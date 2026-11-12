@@ -33,14 +33,14 @@ test('registration is accepted by the contract and yields the documented caps', 
   const maxCt = maxBucketCiphertextLen(8192);
   assert.equal(maxCt, 9256);
   const common = 9256n * 2n + 4096n;
-  const cap1 = 25n * 10n ** 21n + 75n * E15 * (common + 3072n) + 275n * E15 * 1024n;
+  const cap1 = 30n * 10n ** 21n + 75n * E15 * (common + 3072n) + 275n * E15 * 1024n;
   assert.equal(capPrimaryOf(reg, maxCt, maxCt, 4096), cap1);
-  assert.equal(cap1, 27207600000000000000000n); // 0.0272076 NEAR
+  assert.equal(cap1, 32207600000000000000000n); // 0.0322076 NEAR
   const perPanel = 40n * E15 * (common + 3072n) + 250n * E15 * 4096n;
   const comparison = 40n * E15 * (common + 4096n + 1008n + 3n * 4096n) + 250n * E15 * 4096n;
-  const capA = 100n * 10n ** 21n + 3n * perPanel + comparison;
+  const capA = 130n * 10n ** 21n + 3n * perPanel + comparison;
   assert.equal(capAppealOf(reg, maxCt, maxCt, 4096), capA);
-  assert.equal(capA, 108777600000000000000000n); // 0.1087776 NEAR
+  assert.equal(capA, 138777600000000000000000n); // 0.1387776 NEAR
   assert.equal(bondFloorOf(reg, maxCt, 4096), capA);
 });
 

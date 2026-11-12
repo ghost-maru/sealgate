@@ -158,9 +158,9 @@ export function acceptPostingStorage(c, attached, storageBytes) {
   storageIn(c, storage);
 }
 
-// register_template: storage of body + declarations, not tied to any case.
+// register_template: storage of the serialized template record, not tied to any case.
 export function acceptTemplateStorage(attached, storageBytes) {
-  requireExact(attached, storageFee(storageBytes), 'register_template deposit (storage of body + declarations)');
+  requireExact(attached, storageFee(storageBytes), 'register_template deposit (storage of the template record)');
 }
 
 // appeal: bond + CAP_A for the actual submission length.

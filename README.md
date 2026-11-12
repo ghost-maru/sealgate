@@ -78,9 +78,6 @@ npm run cli:demo            # the same flow through the party CLI
 
 ## Known limits
 
-- Ciphertexts are stored base64-encoded, so on-chain storage runs about
-  a third above the raw bytes; the difference is carried by the contract
-  account at testnet scale.
 - The primary response container is a fixed 1,008 bytes. A reason close
   to the 400-character cap in a multibyte script may not fit, in which
   case the judge stays silent and the case refunds in full. The

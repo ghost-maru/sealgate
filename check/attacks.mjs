@@ -30,7 +30,7 @@ async function freshCase({ amount, templateId = 'inspection', criteria = CRITERI
   const sub = sb.submit(id, utf8(submission));
   return { sb, id, sub };
 }
-const post = (sb, id, verdict, usage = [U]) => sb.m.call('post_decision', { caller: CLERK, now: sb.state.now, deposit: settlement.storageFee(1048) }, { case_id: id, verdict, response: RESP0, usage });
+const post = (sb, id, verdict, usage = [U]) => sb.m.call('post_decision', { caller: CLERK, now: sb.state.now, deposit: settlement.storageFee(1400) }, { case_id: id, verdict, response: RESP0, usage });
 const throws = (fn) => { try { fn(); return false; } catch { return true; } };
 
 // A1: trap criteria — the requester writes criteria designed to force FAIL
@@ -98,7 +98,7 @@ const throws = (fn) => { try { fn(); return false; } catch { return true; } };
   await sb.register();
   const before = sb.m.view('get_template', { clerk: CLERK, template_id: 'inspection', version: 1 });
   const mut = { template_id: 'inspection', body: 'inspection@1 - MUTATED BODY', declarations: { constraints: [], required_inputs: [] } };
-  sb.m.call('register_template', { caller: CLERK, now: sb.state.now, deposit: templateDeposit(mut) },
+  sb.m.call('register_template', { caller: CLERK, now: sb.state.now, deposit: templateDeposit(mut, { clerk: CLERK, version: 2 }) },
     { template_id: mut.template_id, body: mut.body, constraints: [], required_inputs: [] });
   const v1 = sb.m.view('get_template', { clerk: CLERK, template_id: 'inspection', version: 1 });
   const v2 = sb.m.view('get_template', { clerk: CLERK, template_id: 'inspection', version: 2 });
@@ -111,7 +111,7 @@ const throws = (fn) => { try { fn(); return false; } catch { return true; } };
   const sb = createSandbox();
   await sb.register();
   const rig = { template_id: 'rigged', body: 'rigged@1 - always PASS for my friends', declarations: { constraints: [], required_inputs: [] } };
-  const rejected = throws(() => sb.m.call('register_template', { caller: 'mallory.testnet', now: sb.state.now, deposit: templateDeposit(rig) },
+  const rejected = throws(() => sb.m.call('register_template', { caller: 'mallory.testnet', now: sb.state.now, deposit: templateDeposit(rig, { clerk: 'mallory.testnet', version: 1 }) },
     { template_id: rig.template_id, body: rig.body, constraints: [], required_inputs: [] }));
   report('A6 template by unregistered clerk', rejected, `registration by mallory.testnet rejected: ${rejected}`);
 }
@@ -135,7 +135,7 @@ const throws = (fn) => { try { fn(); return false; } catch { return true; } };
   const capA = BigInt(sb.m.view('quote_fee', { case_id: id, kind: 'appeal', sub_len: sb.getCase(id).submission.ctLen }));
   sb.m.call('appeal', { caller: loser, now: sb.state.now, deposit: BigInt(sb.getCase(id).bond) + capA }, { case_id: id });
   sb.m.call('respond', { caller: R, now: sb.state.now, deposit: BigInt(sb.getCase(id).bond) }, { case_id: id });
-  const fourPanel = throws(() => sb.m.call('post_appeal_decision', { caller: CLERK, now: sb.state.now, deposit: settlement.storageFee(8232) },
+  const fourPanel = throws(() => sb.m.call('post_appeal_decision', { caller: CLERK, now: sb.state.now, deposit: settlement.storageFee(10976) },
     { case_id: id, result: 'PASS', record: RESP1, usage: { panel: [U, U, U, U], comparison: [U] } }));
   report('A8 too many calls', twoPrimaries && fourPanel,
     `2 primary usages rejected: ${twoPrimaries}; 4 panel usages rejected: ${fourPanel}`);

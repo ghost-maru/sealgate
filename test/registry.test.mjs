@@ -10,7 +10,7 @@ import {
   templateStorage, INSPECTION_DECL, ADJUDICATION_DECL, TPL_BODY, CLERK_REG, b64,
 } from './fixture.mjs';
 
-const regTemplate = (m, caller, id, body, decl = INSPECTION_DECL, deposit = templateStorage(body, decl)) =>
+const regTemplate = (m, caller, id, body, decl = INSPECTION_DECL, deposit = templateStorage(body, decl, id, 1, caller)) =>
   m.call('register_template', { caller, now: T0, deposit }, { template_id: id, body, ...decl });
 
 test('register_clerk / register_signer are owner-only; clerk values are validated', () => {

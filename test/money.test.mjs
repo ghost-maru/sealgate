@@ -73,13 +73,13 @@ test('exact deposits: one yocto off is rejected at every paying method', () => {
   const { m } = setup();
   const args = createArgs();
   const want = BigInt(args.amount) + createStorage();
-  assert.equal(createStorage(), RECORD_FEE + 2200n * STORAGE); // 0.03 + (32 + 2088 + 80) bytes
+  assert.equal(createStorage(), RECORD_FEE + 2924n * STORAGE); // 0.03 + (32 + stored b64 2784 + stored b64 108) bytes
   for (const d of [want - 1n, want + 1n]) rejects(assert, () => m.call('create_case', { caller: R, now: T0, deposit: d }, args), 'E_DEPOSIT');
   const id = m.call('create_case', { caller: R, now: T0, deposit: want }, args);
 
   const { args: sargs } = submitArgs(id);
   const wantS = CAP_1 + submitStorage();
-  assert.equal(submitStorage(), 4424n * STORAGE); // 32 + 4136 + 144 + 80 + 32 bytes
+  assert.equal(submitStorage(), 5880n * STORAGE); // 32 + stored b64 5516 + stored b64 192 + stored b64 108 + 32 bytes
   for (const d of [wantS - 1n, wantS + 1n, submitStorage()]) rejects(assert, () => m.call('submit', { caller: S, now: SUB_AT, deposit: d }, sargs), 'E_DEPOSIT');
   m.call('submit', { caller: S, now: SUB_AT, deposit: wantS }, sargs);
 

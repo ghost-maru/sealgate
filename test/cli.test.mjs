@@ -56,7 +56,7 @@ test('preflight flags a missing declared submission input; submit refuses, then 
   const w = await world();
   // A test-only template with a submission-side required input.
   const t = { template_id: 'checklist', body: 'checklist@1 - the submission must contain a deliverables heading.', declarations: { constraints: [], required_inputs: [{ side: 'submission', heading: '## Deliverables' }] } };
-  w.sb.m.call('register_template', { caller: CLERK, now: w.sb.state.now, deposit: templateDeposit(t) }, { template_id: t.template_id, body: t.body, constraints: [], required_inputs: t.declarations.required_inputs });
+  w.sb.m.call('register_template', { caller: CLERK, now: w.sb.state.now, deposit: templateDeposit(t, { clerk: CLERK, version: t.version }) }, { template_id: t.template_id, body: t.body, constraints: [], required_inputs: t.declarations.required_inputs });
 
   const { caseId } = await cmd.cmdCreate(w.asR, { clerk: CLERK, template: { id: 'checklist', version: 1 }, submitter: S, criteria: utf8(CRITERIA), amount: 1n * NEAR, submitWindowSec: 86400 });
   const bare = utf8('A report with no deliverables heading.');

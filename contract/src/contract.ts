@@ -1,7 +1,7 @@
 // Sealgate contract (SPEC): the NEAR host of the judgment kernel.
 //
 // All protocol logic lives in ./kernel/*.js: the six framework components
-// (fixing, judgment, appeal, settlement, registry, deadlines) and the v7
+// (fixing, judgment, appeal, settlement, registry, deadlines) and the
 // profile that wires them (profile.js). The same files run in the
 // reference machine (../machine.mjs) the unit tests drive. This wrapper only
 //   - persists state in NEAR collections (values are JSON strings),

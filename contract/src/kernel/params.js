@@ -10,6 +10,11 @@ export const NEAR = 10n ** 24n;
 
 // --- storage (§10.3) ---
 export const STORAGE_PRICE_PER_BYTE = 10n ** 19n; // 0.00001 NEAR per byte, paid by the writer, never refunded
+// Blobs are stored on chain as base64 strings, so storage is charged on the
+// stored length, not the decoded length: a padded base64 string is
+// 4 * ceil(rawLen / 3) bytes (ASCII). Charging the decoded length would
+// leave the ~1/3 expansion to the contract account.
+export const b64StoredLen = (rawLen) => 4 * Math.ceil(rawLen / 3);
 export const RECORD_FEE = 3n * 10n ** 22n;        // 0.03 NEAR fixed record fee per case
 
 // --- material formats (§7.3, §7.4) ---

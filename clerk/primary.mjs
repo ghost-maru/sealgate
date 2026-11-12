@@ -20,12 +20,12 @@ import { ctxOf, toB64, encResponse, RESP0_CT_LEN, sha256, utf8, toHex } from '..
 import { buildJudgmentRequest } from '../shared/skeleton.mjs';
 import { parseVerdictResponse } from '../shared/response.mjs';
 import { encodePrimaryRecord, encodeFormalRecord, RESP0_MAX } from '../shared/record.mjs';
-import { STORAGE_PRICE_PER_BYTE } from '../contract/src/kernel/params.js';
+import { STORAGE_PRICE_PER_BYTE, b64StoredLen } from '../contract/src/kernel/params.js';
 import { inspectCase } from './formal.mjs';
 import { validatedCall } from './calls.mjs';
 import { declareUsage } from './usage.mjs';
 
-export const RESP0_DEPOSIT = BigInt(RESP0_CT_LEN) * STORAGE_PRICE_PER_BYTE;
+export const RESP0_DEPOSIT = BigInt(b64StoredLen(RESP0_CT_LEN)) * STORAGE_PRICE_PER_BYTE; // storage is charged on the stored base64 length
 
 // tpl: the registry entry (get_template). Throws when it is not the template
 // pinned on the case.

@@ -72,7 +72,7 @@ function setupMachine() {
   const args = clerkArgs({ account: CLERK, sealKeyHex: toHex(keys.clerk.pk), feeAccount: FEES, registration: REGISTRATION });
   m.call('register_clerk', { caller: OWNER, now: T0 }, args);
   for (const t of TEMPLATES) {
-    m.call('register_template', { caller: CLERK, now: T0, deposit: templateDeposit(t) },
+    m.call('register_template', { caller: CLERK, now: T0, deposit: templateDeposit(t, { clerk: CLERK, version: t.version }) },
       { template_id: t.template_id, body: t.body, constraints: t.declarations.constraints, required_inputs: t.declarations.required_inputs });
   }
   return { m, keys };
@@ -264,10 +264,10 @@ function runRegime(regime) {
         A('submit-1yocto', () => attempt(node, 'submit deposit -1', 'submit', { caller: S, deposit: submitDeposit - 1n, now }, submitArgs));
         A('submit-by-R', () => attempt(node, 'submit by R', 'submit', { caller: R, deposit: submitDeposit, now }, submitArgs));
         A('submit-late', () => attempt(node, 'submit after deadline', 'submit', { caller: S, deposit: submitDeposit, now: c.submitDeadline + 1 }, submitArgs));
-        A('post-too-early', () => attempt(node, 'post_decision before submit', 'post_decision', { caller: CLERK, deposit: settlement.storageFee(1048), now }, { case_id: 0, verdict: 'PASS', response: RESP0, usage: [U] }));
+        A('post-too-early', () => attempt(node, 'post_decision before submit', 'post_decision', { caller: CLERK, deposit: settlement.storageFee(1400), now }, { case_id: 0, verdict: 'PASS', response: RESP0, usage: [U] }));
       }
       if (c.phase === 'AwaitingDecision') {
-        const postDeposit = settlement.storageFee(1048);
+        const postDeposit = settlement.storageFee(1400);
         for (const [vname, verdict, usage] of [['PASS/u1', 'PASS', [U]], ['FAIL/u1', 'FAIL', [U]], ['PASS/formal', 'PASS', []], ['FAIL/formal', 'FAIL', []], ['PASS/overcap', 'PASS', [U_BIG]]]) {
           A(`post-${vname}`, () => attempt(node, `post_decision ${vname}`, 'post_decision', { caller: CLERK, deposit: postDeposit, now }, { case_id: 0, verdict, response: RESP0, usage }, { retainedAdd: postDeposit }));
         }
@@ -285,7 +285,7 @@ function runRegime(regime) {
         A('appeal-by-winner', () => attempt(node, 'appeal by winner', 'appeal', { caller: winner, deposit: appealDeposit, now }, { case_id: 0 }));
         A('appeal-1yocto', () => attempt(node, 'appeal deposit -1', 'appeal', { caller: loser, deposit: appealDeposit - 1n, now }, { case_id: 0 }));
         A('appeal-late', () => attempt(node, 'appeal after window', 'appeal', { caller: loser, deposit: appealDeposit, now: deadlines.appealDeadline(c) + 1 }, { case_id: 0 }));
-        A('post-again', () => attempt(node, 'post_decision twice', 'post_decision', { caller: CLERK, deposit: settlement.storageFee(1048), now }, { case_id: 0, verdict: 'FAIL', response: RESP0, usage: [U] }));
+        A('post-again', () => attempt(node, 'post_decision twice', 'post_decision', { caller: CLERK, deposit: settlement.storageFee(1400), now }, { case_id: 0, verdict: 'FAIL', response: RESP0, usage: [U] }));
       }
       if (c.phase === 'Appealed') {
         A('respond', () => attempt(node, 'respond', 'respond', { caller: c.appeal.respondent, deposit: BigInt(c.bond), now }, { case_id: 0 }, { escrowIn: BigInt(c.bond) }));
@@ -293,7 +293,7 @@ function runRegime(regime) {
         A('respond-late', () => attempt(node, 'respond after window', 'respond', { caller: c.appeal.respondent, deposit: BigInt(c.bond), now: deadlines.respondDeadline(c) + 1 }, { case_id: 0 }));
       }
       if (c.phase === 'UnderReview') {
-        const postDeposit = settlement.storageFee(8232);
+        const postDeposit = settlement.storageFee(10976);
         const flip = c.decision.verdict === 'PASS' ? 'FAIL' : 'PASS';
         for (const [vname, result, usage] of [
           ['flip/full', flip, { panel: [U, U, U], comparison: [U] }],

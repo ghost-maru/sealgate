@@ -120,8 +120,19 @@ export function canonicalDeclarations(args) {
 
 // Bytes the registrant pays storage for: the body (UTF-8) and the canonical
 // declarations (UTF-8 of their JSON serialization).
-export function templateStorageBytes(body, declarations) {
-  return utf8Bytes(body).length + utf8Bytes(JSON.stringify(declarations)).length;
+// The stored template record is the JSON serialization of the record
+// object; storage is charged on exactly those bytes.
+export function buildTemplateRecord({ clerk, id, version, body, declarations, sha256 }) {
+  const bodyBytes = utf8Bytes(body);
+  return {
+    clerk, id, version,
+    body, bodyLen: bodyBytes.length, bodyHash: bytesToHex(sha256(bodyBytes)),
+    constraints: declarations.constraints, requiredInputs: declarations.required_inputs,
+  };
+}
+
+export function templateStorageBytes(tpl) {
+  return utf8Bytes(JSON.stringify(tpl)).length;
 }
 
 // Validates and builds a new template version. Does not write: the profile
@@ -134,12 +145,8 @@ export function prepareTemplate(store, caller, args, sha256) {
   if (bodyBytes.length > reg.lTpl) fail('E_LENGTH', `template body exceeds the clerk's L_tpl (${reg.lTpl} bytes)`);
   const declarations = canonicalDeclarations(args);
   const version = store.getTemplateCount(caller, args.template_id) + 1; // versions start at 1
-  const tpl = {
-    clerk: caller, id: args.template_id, version,
-    body: args.body, bodyLen: bodyBytes.length, bodyHash: bytesToHex(sha256(bodyBytes)),
-    constraints: declarations.constraints, requiredInputs: declarations.required_inputs,
-  };
-  return { tpl, storageBytes: templateStorageBytes(args.body, declarations) };
+  const tpl = buildTemplateRecord({ clerk: caller, id: args.template_id, version, body: args.body, declarations, sha256 });
+  return { tpl, storageBytes: templateStorageBytes(tpl) };
 }
 
 export function commitTemplate(store, tpl) {

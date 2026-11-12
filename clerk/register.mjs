@@ -2,7 +2,7 @@
 // (SPEC §5.5, §8.2, §10.2).
 //
 //   register_clerk     called by the contract OWNER (owner-only method)
-//   register_template  called by the CLERK, deposit = storage of body + declarations
+//   register_template  called by the CLERK, deposit = storage of the template record
 //
 // Idempotence: the clerk is skipped when its stored registration equals the
 // desired one; a differing registration is reported and only overwritten
@@ -12,7 +12,7 @@
 // ids are inspection@1 / adjudication@1, registering a version > 1 needs
 // allowNewVersion.
 
-import { canonicalDeclarations, templateStorageBytes } from '../contract/src/kernel/registry.js';
+import { canonicalDeclarations, buildTemplateRecord, templateStorageBytes } from '../contract/src/kernel/registry.js';
 import { STORAGE_PRICE_PER_BYTE } from '../contract/src/kernel/params.js';
 import { sha256, utf8, toHex } from '../shared/seal.mjs';
 import { REGISTRATION } from './config.mjs';
@@ -37,9 +37,10 @@ export function storedToArgs(r) {
 const canon = (v) => JSON.stringify(v, (k, x) => (x && typeof x === 'object' && !Array.isArray(x) ? Object.fromEntries(Object.entries(x).sort(([a], [b]) => (a < b ? -1 : 1))) : x));
 export const sameClerkArgs = (a, b) => canon(a) === canon(b);
 
-export function templateDeposit(t) {
+export function templateDeposit(t, { clerk, version } = {}) {
   const decl = canonicalDeclarations(t.declarations);
-  return BigInt(templateStorageBytes(t.body, decl)) * STORAGE_PRICE_PER_BYTE;
+  const tpl = buildTemplateRecord({ clerk: clerk ?? '', id: t.template_id ?? '', version: version ?? t.version ?? 1, body: t.body, declarations: decl, sha256 });
+  return BigInt(templateStorageBytes(tpl)) * STORAGE_PRICE_PER_BYTE;
 }
 export const bodyHashOf = (body) => toHex(sha256(utf8(body)));
 
@@ -77,7 +78,7 @@ export async function ensureRegistered({ ownerChain, clerkChain, args, templates
       const s = await clerkChain.view('get_template', { clerk: args.account, template_id: t.template_id, version: v });
       if (s && sameTemplate(s, t)) found = v;
     }
-    const deposit = templateDeposit(t);
+    const deposit = templateDeposit(t, { clerk: args.account, version: count + 1 });
     const entry = { template_id: t.template_id, wanted: t.version, bodyHash: bodyHashOf(t.body), bytes: utf8(t.body).length, deposit: deposit.toString() };
     if (found) {
       Object.assign(entry, { status: 'unchanged', version: found });

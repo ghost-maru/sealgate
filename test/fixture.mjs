@@ -44,8 +44,10 @@ export const b64 = (n) => randomBytes(n).toString('base64');
 export const sha256hex = (buf) => createHash('sha256').update(buf).digest('hex');
 export const hex32 = () => randomBytes(32).toString('hex');
 
-export function templateStorage(body, declarations) {
-  return BigInt(Buffer.byteLength(body, 'utf8') + Buffer.byteLength(JSON.stringify(declarations), 'utf8')) * STORAGE;
+import { buildTemplateRecord, templateStorageBytes } from '../contract/src/kernel/registry.js';
+export function templateStorage(body, declarations, id, version = 1, clerk = CLERK) {
+  const tpl = buildTemplateRecord({ clerk, id, version, body, declarations, sha256: (b) => createHash('sha256').update(b).digest() });
+  return BigInt(templateStorageBytes(tpl)) * STORAGE;
 }
 export const INSPECTION_DECL = { constraints: [], required_inputs: [] };
 export const ADJUDICATION_DECL = { constraints: ['amount_zero'], required_inputs: [{ side: 'case_file', heading: '## Zeroth decision', on_missing: 'PASS' }] };
@@ -58,8 +60,8 @@ export const SUB_CT_LEN = 4136;
 export function setup({ clerkReg = CLERK_REG } = {}) {
   const m = new Machine({ owner: OWNER });
   m.call('register_clerk', { caller: OWNER, now: T0 }, clerkReg);
-  m.call('register_template', { caller: CLERK, now: T0, deposit: templateStorage(TPL_BODY, INSPECTION_DECL) }, { template_id: 'inspection', body: TPL_BODY, ...INSPECTION_DECL });
-  m.call('register_template', { caller: CLERK, now: T0, deposit: templateStorage(TPL_BODY, ADJUDICATION_DECL) }, { template_id: 'adjudication', body: TPL_BODY, ...ADJUDICATION_DECL });
+  m.call('register_template', { caller: CLERK, now: T0, deposit: templateStorage(TPL_BODY, INSPECTION_DECL, 'inspection') }, { template_id: 'inspection', body: TPL_BODY, ...INSPECTION_DECL });
+  m.call('register_template', { caller: CLERK, now: T0, deposit: templateStorage(TPL_BODY, ADJUDICATION_DECL, 'adjudication') }, { template_id: 'adjudication', body: TPL_BODY, ...ADJUDICATION_DECL });
   for (const a of [R, S, X]) m.call('register_key', { caller: a, now: T0 }, { pubkey: hex32() });
   return { m };
 }
@@ -73,7 +75,8 @@ export function createArgs(over = {}) {
     ...over,
   };
 }
-export const createStorage = (critLen = CRIT_CT_LEN) => RECORD_FEE + BigInt(32 + critLen + 80) * STORAGE;
+const b64Stored = (n) => 4 * Math.ceil(n / 3);
+export const createStorage = (critLen = CRIT_CT_LEN) => RECORD_FEE + BigInt(32 + b64Stored(critLen) + b64Stored(80)) * STORAGE;
 
 export function createCase(m, over = {}, now = T0) {
   const args = createArgs(over);
@@ -89,7 +92,7 @@ export function submitArgs(caseId, { subLen = SUB_CT_LEN } = {}) {
     args: { case_id: caseId, sub_hash: hex32(), sub_ct: b64(subLen), env_c: b64(144), env_r: b64(80), lock: sha256hex(k2) },
   };
 }
-export const submitStorage = (subLen = SUB_CT_LEN) => BigInt(32 + subLen + 144 + 80 + 32) * STORAGE;
+export const submitStorage = (subLen = SUB_CT_LEN) => BigInt(32 + b64Stored(subLen) + b64Stored(144) + b64Stored(80) + 32) * STORAGE;
 
 export function submitCase(m, id, now, { subLen = SUB_CT_LEN } = {}) {
   const { k2, args } = submitArgs(id, { subLen });
@@ -98,8 +101,8 @@ export function submitCase(m, id, now, { subLen = SUB_CT_LEN } = {}) {
   return { k2, cap1 };
 }
 
-export const RESP0_STORAGE = 1048n * STORAGE;
-export const RESP1_STORAGE = 8232n * STORAGE;
+export const RESP0_STORAGE = 1400n * STORAGE; // stored base64 length of the 1048-byte container
+export const RESP1_STORAGE = 10976n * STORAGE; // stored base64 length of the 8232-byte container
 
 export function decide(m, id, verdict, now, usage = [{ in: 4096, out: 1024 }]) {
   m.call('post_decision', { caller: CLERK, now, deposit: RESP0_STORAGE }, { case_id: id, verdict, response: b64(1048), usage });

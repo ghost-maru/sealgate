@@ -4,7 +4,7 @@
 // network, no secrets: every key here is generated in memory.
 
 import { Machine } from '../contract/machine.mjs';
-import { RECORD_FEE, STORAGE_PRICE_PER_BYTE } from '../contract/src/kernel/params.js';
+import { RECORD_FEE, STORAGE_PRICE_PER_BYTE, b64StoredLen } from '../contract/src/kernel/params.js';
 import { keypair, toHex, fromB64, buildCriteria, buildSubmission } from '../shared/seal.mjs';
 import { MachineChain } from './chain.mjs';
 import { REGISTRATION } from './config.mjs';
@@ -54,7 +54,7 @@ export function createSandbox({ registration = REGISTRATION } = {}) {
         criteria_hash: mat.criteria_hash, criteria_ct: mat.criteria_ct, env_s: mat.env_s,
         submit_window_sec: submitWindowSec, w_sec: wSec, expected_case_id: caseId,
       };
-      m.call('create_case', { caller: R, now: state.now, deposit: amount + RECORD_FEE + storage(32 + ctLen + 80) }, args);
+      m.call('create_case', { caller: R, now: state.now, deposit: amount + RECORD_FEE + storage(32 + b64StoredLen(ctLen) + b64StoredLen(80)) }, args);
       cases[caseId] = { SK: mat.SK, criteria, critSalt: mat.salt };
       return caseId;
     },
@@ -65,7 +65,7 @@ export function createSandbox({ registration = REGISTRATION } = {}) {
       const args = { case_id: caseId, sub_hash: sub.sub_hash, sub_ct: sub.sub_ct, env_c: sub.env_c, env_r: sub.env_r, lock: sub.lock, ...override };
       const subLen = fromB64(args.sub_ct).length;
       const cap1 = BigInt(m.view('quote_fee', { case_id: caseId, kind: 'primary', sub_len: subLen }));
-      m.call('submit', { caller: S, now: state.now, deposit: cap1 + storage(32 + subLen + 144 + 80 + 32) }, args);
+      m.call('submit', { caller: S, now: state.now, deposit: cap1 + storage(32 + b64StoredLen(subLen) + b64StoredLen(144) + b64StoredLen(80) + 32) }, args);
       Object.assign(cases[caseId], { sub, submission, cap1 });
       return sub;
     },

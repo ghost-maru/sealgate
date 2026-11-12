@@ -28,13 +28,13 @@ import { buildJudgmentRequest, buildComparisonRequest } from '../shared/skeleton
 import { parseVerdictResponse, parseComparisonResponse, signedUsage } from '../shared/response.mjs';
 import { decodeRecord, encodeRecord, payloadSlice, inflate, deflate, compactSig, CHECK1_RESPONSE_KEY, RESP1_MAX } from '../shared/record.mjs';
 import { sha256hex, signatureText } from '../shared/tee.mjs';
-import { STORAGE_PRICE_PER_BYTE } from '../contract/src/kernel/params.js';
+import { STORAGE_PRICE_PER_BYTE, b64StoredLen } from '../contract/src/kernel/params.js';
 import { inspectCase } from './formal.mjs';
 import { verifyPinnedTemplate, primaryRequest } from './primary.mjs';
 import { validatedCall, signedCallFailures } from './calls.mjs';
 import { declareUsage, sameUsage } from './usage.mjs';
 
-export const RESP1_DEPOSIT = BigInt(RESP1_CT_LEN) * STORAGE_PRICE_PER_BYTE;
+export const RESP1_DEPOSIT = BigInt(b64StoredLen(RESP1_CT_LEN)) * STORAGE_PRICE_PER_BYTE; // storage is charged on the stored base64 length
 export const PANEL_SIZE = 3;
 
 // --------------------------------------------------------- pure decisions

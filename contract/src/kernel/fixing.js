@@ -10,7 +10,7 @@
 import {
   fail, hex32Arg, b64Arg, ceilDiv,
   HASH_LEN, SALT_LEN, NONCE_LEN, TAG_LEN, LEN_PREFIX, PAD_UNIT, MAX_PADDED_MESSAGE,
-  ENV_S_LEN, ENV_C_LEN, ENV_R_LEN, RESP0_CT_LEN, RESP1_CT_LEN,
+  ENV_S_LEN, ENV_C_LEN, ENV_R_LEN, RESP0_CT_LEN, RESP1_CT_LEN, b64StoredLen,
 } from './params.js';
 
 // §7.3 pad(): N = max(1024, ceil((|m| + 2) / 1024) * 1024) for "std" / "sub".
@@ -52,7 +52,7 @@ export function fixCriteria(args, lCrit) {
   return {
     record: { hash, ctLen: ct.len },
     blobs: { criteria_ct: ct.value, env_s: env.value },
-    storageBytes: HASH_LEN + ct.len + ENV_S_LEN,
+    storageBytes: HASH_LEN + b64StoredLen(ct.len) + b64StoredLen(ENV_S_LEN),
   };
 }
 
@@ -67,7 +67,7 @@ export function fixSubmission(args, lSub) {
   return {
     record: { hash, ctLen: ct.len, lock },
     blobs: { sub_ct: ct.value, env_c: envC.value, env_r: envR.value },
-    storageBytes: HASH_LEN + ct.len + ENV_C_LEN + ENV_R_LEN + HASH_LEN,
+    storageBytes: HASH_LEN + b64StoredLen(ct.len) + b64StoredLen(ENV_C_LEN) + b64StoredLen(ENV_R_LEN) + HASH_LEN,
   };
 }
 
@@ -76,7 +76,7 @@ export function fixResponse(x, which) {
   const want = which === 'resp0' ? RESP0_CT_LEN : RESP1_CT_LEN;
   const name = which === 'resp0' ? 'response' : 'record';
   const b = fixedLenB64(x, name, want);
-  return { blob: b.value, storageBytes: want };
+  return { blob: b.value, storageBytes: b64StoredLen(want) };
 }
 
 export const blobKey = (caseId, slot) => `${caseId}:${slot}`;

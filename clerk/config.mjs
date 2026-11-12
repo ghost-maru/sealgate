@@ -39,11 +39,13 @@
 //   P_1 = P_p = 3072, P_c = 4096.
 //
 // Base fees (margin lives here):
-//   base_1 = 0.025 NEAR: resp0 storage 1048 B * 1e19 = 0.01048 NEAR
-//            + post_decision gas (<= 0.005 NEAR) + the k2 finalize the clerk
-//            sends on a PASS (<= 0.005 NEAR) + margin (~0.0045 NEAR).
-//   base_A = 0.1 NEAR: resp1 storage 8232 B * 1e19 = 0.08232 NEAR
-//            + post_appeal_decision gas (<= 0.005 NEAR) + margin (~0.0127 NEAR).
+//   base_1 = 0.03 NEAR: resp0 storage (stored base64 length 1400 B)
+//            * 1e19 = 0.014 NEAR + post_decision gas (<= 0.005 NEAR)
+//            + the k2 finalize the clerk sends on a PASS (<= 0.005 NEAR)
+//            + margin (~0.006 NEAR).
+//   base_A = 0.13 NEAR: resp1 storage (stored base64 length 10976 B)
+//            * 1e19 = 0.10976 NEAR + post_appeal_decision gas
+//            (<= 0.005 NEAR) + margin (~0.0152 NEAR).
 //
 // Size limits (§10.2, derived from the primary model's 16K-token context):
 //   L_crit = L_sub = 8192 bytes, L_tpl = 4096 bytes. Worst primary input in
@@ -57,8 +59,8 @@
 //
 // Resulting caps (computed by the contract from on-chain lengths, §6.1), at
 // the maximum sizes (criteria and submission ciphertexts 9256 B each,
-// template 4096 B): CAP_1 = 0.0272076 NEAR, CAP_A (= bond floor)
-// = 0.1087776 NEAR. test/clerk-config.test.mjs recomputes them.
+// template 4096 B): CAP_1 = 0.0322076 NEAR, CAP_A (= bond floor)
+// = 0.1387776 NEAR. test/clerk-register.test.mjs recomputes them.
 
 export const NEAR = 10n ** 24n;
 
@@ -96,8 +98,8 @@ export const W1_SEC_DEMO = 30 * 60;
 // seal_key, fee_account), which come from the runtime environment.
 export const REGISTRATION = Object.freeze({
   w1_sec: W1_SEC,
-  base_1: (25n * NEAR / 1000n).toString(),  // 0.025 NEAR
-  base_a: (100n * NEAR / 1000n).toString(), // 0.1 NEAR
+  base_1: (30n * NEAR / 1000n).toString(),  // 0.03 NEAR
+  base_a: (130n * NEAR / 1000n).toString(), // 0.13 NEAR
   stages: {
     primary: stage(PRIMARY_MODEL, 1024, 3072),
     panel: stage(PANEL_MODEL, 4096, 3072),

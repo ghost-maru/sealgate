@@ -54,7 +54,7 @@ async function main() {
       console.log(JSON.stringify({
         priceBasis: { referenceNearUsdCents: PRICE_BASIS.referenceNearUsdCents.toString(), fxBufferPercent: PRICE_BASIS.fxBufferPercent.toString(), effectiveNearUsdCents: EFFECTIVE_NEAR_USD_CENTS.toString() },
         registration: registrationFor({ demo: cfg.demo }),
-        templates: TEMPLATES.map((t) => ({ id: `${t.template_id}@${t.version}`, bytes: utf8(t.body).length, sha256: bodyHashOf(t.body), deposit: templateDeposit(t).toString(), declarations: t.declarations })),
+        templates: TEMPLATES.map((t) => ({ id: `${t.template_id}@${t.version}`, bytes: utf8(t.body).length, sha256: bodyHashOf(t.body), deposit: templateDeposit(t, { clerk: cfg.clerkAccount || '', version: t.version }).toString(), declarations: t.declarations })),
       }, null, 2));
       return;
     }
@@ -75,7 +75,7 @@ async function main() {
       if (!cfg.live) {
         console.log('offline dry run: register_clerk args (called by the owner):');
         console.log(JSON.stringify(args, null, 2));
-        for (const t of TEMPLATES) console.log(`register_template ${t.template_id} (expected @${t.version}), ${utf8(t.body).length} bytes, deposit ${templateDeposit(t)} yocto`);
+        for (const t of TEMPLATES) console.log(`register_template ${t.template_id} (expected @${t.version}), ${utf8(t.body).length} bytes, deposit ${templateDeposit(t, { clerk: args.account, version: t.version })} yocto`);
         return;
       }
       need(cfg, 'contract', 'clerkKeyFile', ...(dryRun ? [] : ['ownerAccount', 'ownerKeyFile']));
